@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2E0C7413-8BA1-4DA2-B81A-902CDE2407ED</string>
+	<key>IDESourceControlProjectName</key>
+	<string>IPSE</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>EE7078DDFB881B2CB43B626EE2EF4498506C0E96</key>
+		<string>https://github.com/michaelsunb/IPSE.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>IPSE.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>EE7078DDFB881B2CB43B626EE2EF4498506C0E96</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/michaelsunb/IPSE.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>EE7078DDFB881B2CB43B626EE2EF4498506C0E96</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EE7078DDFB881B2CB43B626EE2EF4498506C0E96</string>
+			<key>IDESourceControlWCCName</key>
+			<string>IPSE</string>
+		</dict>
+	</array>
+</dict>
+</plist>
