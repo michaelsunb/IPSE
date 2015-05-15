@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		9322D4271B01C03000BC18BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9322D4261B01C03000BC18BF /* AppDelegate.swift */; };
 		9322D42A1B01C03000BC18BF /* IPSE.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9322D4281B01C03000BC18BF /* IPSE.xcdatamodeld */; };
-		9322D42C1B01C03000BC18BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9322D42B1B01C03000BC18BF /* ViewController.swift */; };
+		9322D42C1B01C03000BC18BF /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9322D42B1B01C03000BC18BF /* MenuController.swift */; };
 		9322D42F1B01C03100BC18BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9322D42D1B01C03100BC18BF /* Main.storyboard */; };
 		9322D4311B01C03100BC18BF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9322D4301B01C03100BC18BF /* Images.xcassets */; };
 		9322D4341B01C03100BC18BF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9322D4321B01C03100BC18BF /* LaunchScreen.xib */; };
 		9322D4401B01C03100BC18BF /* IPSETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9322D43F1B01C03100BC18BF /* IPSETests.swift */; };
 		9322D44B1B01C08A00BC18BF /* OrdersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9322D44A1B01C08A00BC18BF /* OrdersController.swift */; };
+		9322D44E1B01C39C00BC18BF /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 9322D44D1B01C39C00BC18BF /* README.md */; };
+		9322D4501B01CDF700BC18BF /* iLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9322D44F1B01CDF700BC18BF /* iLogin.swift */; };
+		9322D4521B01CE4800BC18BF /* iProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9322D4511B01CE4800BC18BF /* iProfile.swift */; };
+		9322D4541B01CE9600BC18BF /* iOrders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9322D4531B01CE9600BC18BF /* iOrders.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +36,7 @@
 		9322D4251B01C03000BC18BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9322D4261B01C03000BC18BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9322D4291B01C03000BC18BF /* IPSE.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IPSE.xcdatamodel; sourceTree = "<group>"; };
-		9322D42B1B01C03000BC18BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9322D42B1B01C03000BC18BF /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		9322D42E1B01C03100BC18BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9322D4301B01C03100BC18BF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9322D4331B01C03100BC18BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -40,6 +44,10 @@
 		9322D43E1B01C03100BC18BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9322D43F1B01C03100BC18BF /* IPSETests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPSETests.swift; sourceTree = "<group>"; };
 		9322D44A1B01C08A00BC18BF /* OrdersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersController.swift; sourceTree = "<group>"; };
+		9322D44D1B01C39C00BC18BF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9322D44F1B01CDF700BC18BF /* iLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iLogin.swift; sourceTree = "<group>"; };
+		9322D4511B01CE4800BC18BF /* iProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iProfile.swift; sourceTree = "<group>"; };
+		9322D4531B01CE9600BC18BF /* iOrders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOrders.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,7 @@
 		9322D4181B01C03000BC18BF = {
 			isa = PBXGroup;
 			children = (
+				9322D44D1B01C39C00BC18BF /* README.md */,
 				9322D4231B01C03000BC18BF /* IPSE */,
 				9322D43C1B01C03100BC18BF /* IPSETests */,
 				9322D4221B01C03000BC18BF /* Products */,
@@ -122,7 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				9322D44A1B01C08A00BC18BF /* OrdersController.swift */,
-				9322D42B1B01C03000BC18BF /* ViewController.swift */,
+				9322D42B1B01C03000BC18BF /* MenuController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -130,6 +139,9 @@
 		9322D44C1B01C18800BC18BF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9322D44F1B01CDF700BC18BF /* iLogin.swift */,
+				9322D4511B01CE4800BC18BF /* iProfile.swift */,
+				9322D4531B01CE9600BC18BF /* iOrders.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -234,9 +246,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9322D42C1B01C03000BC18BF /* ViewController.swift in Sources */,
+				9322D4541B01CE9600BC18BF /* iOrders.swift in Sources */,
+				9322D42C1B01C03000BC18BF /* MenuController.swift in Sources */,
+				9322D4501B01CDF700BC18BF /* iLogin.swift in Sources */,
 				9322D42A1B01C03000BC18BF /* IPSE.xcdatamodeld in Sources */,
+				9322D44E1B01C39C00BC18BF /* README.md in Sources */,
 				9322D44B1B01C08A00BC18BF /* OrdersController.swift in Sources */,
+				9322D4521B01CE4800BC18BF /* iProfile.swift in Sources */,
 				9322D4271B01C03000BC18BF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,6 +447,7 @@
 				9322D4451B01C03100BC18BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9322D4461B01C03100BC18BF /* Build configuration list for PBXNativeTarget "IPSETests" */ = {
 			isa = XCConfigurationList;
@@ -439,6 +456,7 @@
 				9322D4481B01C03100BC18BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

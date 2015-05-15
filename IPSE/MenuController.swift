@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MenuController: UIViewController {
+    var indexPathRow: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +20,5 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 

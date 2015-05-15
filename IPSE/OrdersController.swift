@@ -43,7 +43,7 @@ class OrdersController: UITableViewController {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
                 let object = objects[indexPath.row] as NSDate
-            //(segue.destinationViewController as BlogDetailViewController).detailItem = object
+            (segue.destinationViewController as MenuController).indexPathRow = indexPath.row
             }
         }
     }
