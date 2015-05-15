@@ -12,3 +12,9 @@ protocol iLogin {
     func setUsername() -> Bool
     func setPassword() -> Bool
 }
+
+struct AccountTable {
+    var id: Int
+    var username: String
+    var password: String
+}

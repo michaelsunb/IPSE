@@ -18,7 +18,9 @@ protocol iOrders {
 
 struct OrderTable {
     var id: Int
-    var itemID: Int
-    var ProfileID: Int
+    var item_id: Int
+    var profile_id: Int
     var qty: Int
+    var start_date: String
+    var end_date: String
 }

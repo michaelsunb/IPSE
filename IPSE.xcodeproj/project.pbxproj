@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		930397011B05C09100430E6B /* iProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930397001B05C09100430E6B /* iProduct.swift */; };
+		930397031B05C1E500430E6B /* iFavourite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930397021B05C1E500430E6B /* iFavourite.swift */; };
 		9322D4271B01C03000BC18BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9322D4261B01C03000BC18BF /* AppDelegate.swift */; };
 		9322D42A1B01C03000BC18BF /* IPSE.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9322D4281B01C03000BC18BF /* IPSE.xcdatamodeld */; };
 		9322D42C1B01C03000BC18BF /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9322D42B1B01C03000BC18BF /* MenuController.swift */; };
@@ -15,7 +17,6 @@
 		9322D4341B01C03100BC18BF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9322D4321B01C03100BC18BF /* LaunchScreen.xib */; };
 		9322D4401B01C03100BC18BF /* IPSETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9322D43F1B01C03100BC18BF /* IPSETests.swift */; };
 		9322D44B1B01C08A00BC18BF /* OrdersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9322D44A1B01C08A00BC18BF /* OrdersController.swift */; };
-		9322D44E1B01C39C00BC18BF /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 9322D44D1B01C39C00BC18BF /* README.md */; };
 		9322D4501B01CDF700BC18BF /* iLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9322D44F1B01CDF700BC18BF /* iLogin.swift */; };
 		9322D4521B01CE4800BC18BF /* iProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9322D4511B01CE4800BC18BF /* iProfile.swift */; };
 		9322D4541B01CE9600BC18BF /* iOrders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9322D4531B01CE9600BC18BF /* iOrders.swift */; };
@@ -32,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		930397001B05C09100430E6B /* iProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iProduct.swift; sourceTree = "<group>"; };
+		930397021B05C1E500430E6B /* iFavourite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iFavourite.swift; sourceTree = "<group>"; };
 		9322D4211B01C03000BC18BF /* IPSE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IPSE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9322D4251B01C03000BC18BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9322D4261B01C03000BC18BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,7 +47,6 @@
 		9322D43E1B01C03100BC18BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9322D43F1B01C03100BC18BF /* IPSETests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPSETests.swift; sourceTree = "<group>"; };
 		9322D44A1B01C08A00BC18BF /* OrdersController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersController.swift; sourceTree = "<group>"; };
-		9322D44D1B01C39C00BC18BF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9322D44F1B01CDF700BC18BF /* iLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iLogin.swift; sourceTree = "<group>"; };
 		9322D4511B01CE4800BC18BF /* iProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iProfile.swift; sourceTree = "<group>"; };
 		9322D4531B01CE9600BC18BF /* iOrders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOrders.swift; sourceTree = "<group>"; };
@@ -71,7 +73,6 @@
 		9322D4181B01C03000BC18BF = {
 			isa = PBXGroup;
 			children = (
-				9322D44D1B01C39C00BC18BF /* README.md */,
 				9322D4231B01C03000BC18BF /* IPSE */,
 				9322D43C1B01C03100BC18BF /* IPSETests */,
 				9322D4221B01C03000BC18BF /* Products */,
@@ -142,6 +143,8 @@
 				9322D44F1B01CDF700BC18BF /* iLogin.swift */,
 				9322D4511B01CE4800BC18BF /* iProfile.swift */,
 				9322D4531B01CE9600BC18BF /* iOrders.swift */,
+				930397001B05C09100430E6B /* iProduct.swift */,
+				930397021B05C1E500430E6B /* iFavourite.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				TargetAttributes = {
 					9322D4201B01C03000BC18BF = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 8LELQL34M8;
 					};
 					9322D4381B01C03100BC18BF = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -249,9 +253,10 @@
 				9322D4541B01CE9600BC18BF /* iOrders.swift in Sources */,
 				9322D42C1B01C03000BC18BF /* MenuController.swift in Sources */,
 				9322D4501B01CDF700BC18BF /* iLogin.swift in Sources */,
+				930397011B05C09100430E6B /* iProduct.swift in Sources */,
 				9322D42A1B01C03000BC18BF /* IPSE.xcdatamodeld in Sources */,
-				9322D44E1B01C39C00BC18BF /* README.md in Sources */,
 				9322D44B1B01C08A00BC18BF /* OrdersController.swift in Sources */,
+				930397031B05C1E500430E6B /* iFavourite.swift in Sources */,
 				9322D4521B01CE4800BC18BF /* iProfile.swift in Sources */,
 				9322D4271B01C03000BC18BF /* AppDelegate.swift in Sources */,
 			);
@@ -378,9 +383,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = IPSE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -388,9 +396,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = IPSE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
