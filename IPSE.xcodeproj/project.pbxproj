@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		930397011B05C09100430E6B /* iProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930397001B05C09100430E6B /* iProduct.swift */; };
 		930397031B05C1E500430E6B /* iFavourite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930397021B05C1E500430E6B /* iFavourite.swift */; };
+		930397051B05CA8E00430E6B /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930397041B05CA8E00430E6B /* ProductModel.swift */; };
+		930397061B05D78E00430E6B /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930397041B05CA8E00430E6B /* ProductModel.swift */; };
+		930397071B05DC5500430E6B /* iProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930397001B05C09100430E6B /* iProduct.swift */; };
 		9322D4271B01C03000BC18BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9322D4261B01C03000BC18BF /* AppDelegate.swift */; };
 		9322D42A1B01C03000BC18BF /* IPSE.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9322D4281B01C03000BC18BF /* IPSE.xcdatamodeld */; };
 		9322D42C1B01C03000BC18BF /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9322D42B1B01C03000BC18BF /* MenuController.swift */; };
@@ -35,6 +38,7 @@
 /* Begin PBXFileReference section */
 		930397001B05C09100430E6B /* iProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iProduct.swift; sourceTree = "<group>"; };
 		930397021B05C1E500430E6B /* iFavourite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iFavourite.swift; sourceTree = "<group>"; };
+		930397041B05CA8E00430E6B /* ProductModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		9322D4211B01C03000BC18BF /* IPSE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IPSE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9322D4251B01C03000BC18BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9322D4261B01C03000BC18BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 				9322D4531B01CE9600BC18BF /* iOrders.swift */,
 				930397001B05C09100430E6B /* iProduct.swift */,
 				930397021B05C1E500430E6B /* iFavourite.swift */,
+				930397041B05CA8E00430E6B /* ProductModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 				930397031B05C1E500430E6B /* iFavourite.swift in Sources */,
 				9322D4521B01CE4800BC18BF /* iProfile.swift in Sources */,
 				9322D4271B01C03000BC18BF /* AppDelegate.swift in Sources */,
+				930397051B05CA8E00430E6B /* ProductModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +273,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9322D4401B01C03100BC18BF /* IPSETests.swift in Sources */,
+				930397061B05D78E00430E6B /* ProductModel.swift in Sources */,
+				930397071B05DC5500430E6B /* iProduct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

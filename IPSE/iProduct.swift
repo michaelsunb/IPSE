@@ -11,6 +11,7 @@ import Foundation
 protocol iProduct{
     func getProducts() -> String
     func getProductDetails() -> String
+    func getProductImage(productID:String) -> NSData
 }
 
 struct ProductTable {
