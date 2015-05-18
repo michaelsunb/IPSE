@@ -19,26 +19,26 @@ class ProductModel : NSManagedObject {
     @NSManaged private var productCost : Float
     @NSManaged private var productImag : String
     
-    var product: [ProductTable] {
-        get {
-            return [ProductTable(
-                id:self.productID,
-                name:self.productName,
-                description:self.productDesc,
-                cost:self.productCost,
-                product_image:self.productImag
-            )]
-        }
-        set {
-            for newVal in newValue {
-                self.productID = newVal.id
-                self.productName = newVal.name
-                self.productDesc = newVal.description
-                self.productCost = newVal.cost
-                self.productImag = newVal.product_image
-            }
-        }
-    }
+//    var product: [ProductTable] {
+//        get {
+//            return [ProductTable(
+//                id:self.productID,
+//                name:self.productName,
+//                description:self.productDesc,
+//                cost:self.productCost,
+//                product_image:self.productImag
+//            )]
+//        }
+//        set {
+//            for newVal in newValue {
+//                self.productID = newVal.id
+//                self.productName = newVal.name
+//                self.productDesc = newVal.description
+//                self.productCost = newVal.cost
+//                self.productImag = newVal.product_image
+//            }
+//        }
+//    }
     
     /**
      * Reference to thread safe singleton at bottom on page
