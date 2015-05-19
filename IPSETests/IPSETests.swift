@@ -11,6 +11,9 @@ import XCTest
 
 class IPSETests: XCTestCase {
     
+    let instances1 : Model = Model.sharedInstance
+    let instances2 : Model = Model.sharedInstance
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -21,21 +24,28 @@ class IPSETests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
+    func testGetProductsTable() {
+        let products = self.instances1.getTable("Products") as [Product]
+
+        for product in products {
+            XCTAssertGreaterThanOrEqual(product.getId(), 0,
+                "Table name should be Products")
         }
     }
     
-    func testProductModel() {
-        var test = ProductModel()
-//        test.product = ProductTable(id: 0,name: "in name",description: "in desc",cost: 4.20,product_image: "in image")
-//        XCTAssertEqual(test.product.id,0, "ID should equal to zero")
+//    func testSaveModel() {
+//        var newProduct = Product()
+//        newProducts.id = 0
+//        newProducts.name = "test name"
+//        newProducts.desc = "test desc"
+//        newProducts.cost = 5.90
+//        newProducts.product_image = "test img"
+//        instances1.save(newProducts)
+//    }
+    
+    func testSharedInstance_Twice() {
+        let inst1 = instances1
+        let inst2 = instances2
+        XCTAssertTrue(inst1 === inst2, "Instances should be the same")
     }
 }
