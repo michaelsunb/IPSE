@@ -9,13 +9,11 @@
 import Foundation
 import CoreData
 
-class Order : iTable {
+class Order : NSManagedObject {
     @NSManaged var id: Int
     @NSManaged var item_id: Int
     @NSManaged var profile_id: Int
     @NSManaged var qty: Int
     @NSManaged var start_date: String
     @NSManaged var end_date: String
-
-    override class var getTableName: String { return "Orders" }
 }

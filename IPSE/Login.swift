@@ -9,10 +9,8 @@
 import Foundation
 import CoreData
 
-class Login : iTable {
+class Login : NSManagedObject {
     @NSManaged var id: Int
     @NSManaged var username: String
     @NSManaged var password: String
-    
-    override class var getTableName: String { return "Logins" }
 }

@@ -9,10 +9,8 @@
 import Foundation
 import CoreData
 
-class Favourite : iTable {
+class Favourite : NSManagedObject {
     @NSManaged var id: Int
     @NSManaged var profile_id: Int
     @NSManaged var order_id: Int
-    
-    override class var getTableName: String { return "Favourites" }
 }

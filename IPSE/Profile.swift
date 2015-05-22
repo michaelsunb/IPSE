@@ -9,11 +9,9 @@
 import Foundation
 import CoreData
 
-class Profile : iTable {
+class Profile : NSManagedObject {
     @NSManaged var id: Int
     @NSManaged var first_name: String
     @NSManaged var last_name: String
     @NSManaged var picture: String
-    
-    override class var getTableName: String { return "Profiles" }
 }
