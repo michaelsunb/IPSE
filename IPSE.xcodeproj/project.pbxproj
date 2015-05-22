@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00BA352C1B0F3B1600E82DB9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BA352B1B0F3B1600E82DB9 /* Model.swift */; };
 		930397011B05C09100430E6B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930397001B05C09100430E6B /* Product.swift */; };
 		930397031B05C1E500430E6B /* Favourite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930397021B05C1E500430E6B /* Favourite.swift */; };
 		930397071B05DC5500430E6B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930397001B05C09100430E6B /* Product.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00BA352B1B0F3B1600E82DB9 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		930397001B05C09100430E6B /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		930397021B05C1E500430E6B /* Favourite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favourite.swift; sourceTree = "<group>"; };
 		9322D4211B01C03000BC18BF /* IPSE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IPSE.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +153,7 @@
 			children = (
 				934EC2CB1B0F3A1F00C4EFAB /* ProductModel.swift */,
 				934EC2CA1B0F399F00C4EFAB /* Tables */,
+				00BA352B1B0F3B1600E82DB9 /* Model.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				9322D44B1B01C08A00BC18BF /* OrdersController.swift in Sources */,
 				930397031B05C1E500430E6B /* Favourite.swift in Sources */,
 				9322D4521B01CE4800BC18BF /* Profile.swift in Sources */,
+				00BA352C1B0F3B1600E82DB9 /* Model.swift in Sources */,
 				9322D4271B01C03000BC18BF /* AppDelegate.swift in Sources */,
 				934EC2CC1B0F3A1F00C4EFAB /* ProductModel.swift in Sources */,
 			);
