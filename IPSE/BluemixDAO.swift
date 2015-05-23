@@ -46,5 +46,30 @@ class BlueMixDAO {
         return loginRequest
     }
     
+    func getAllProducts() -> NSArray? {
+        let urlPath: String = "http://foodorderingsystem.mybluemix.net/products/products.php"
+        var url: NSURL = NSURL(string: urlPath)!
+        var request1: NSURLRequest = NSURLRequest(URL: url)
+        let queue:NSOperationQueue = NSOperationQueue()
+        var loginRequest:Bool = false
+        var productArray:NSArray?
+        NSURLConnection.sendAsynchronousRequest(request1, queue: queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+            var err: NSError
+            var jsonResult: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: nil)
+            
+            println("AsSynchronous\(jsonResult)")
+            
+            if let jsonDictionary = jsonResult as? NSDictionary {
+                if let productsArray = jsonDictionary["products"] as? NSArray {
+                    productArray = productsArray
+                    
+                }
+            }
+            
+        })
+        
+        return productArray?
+    }
+    
     
 }

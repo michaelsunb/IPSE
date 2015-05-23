@@ -23,6 +23,7 @@ class OrdersController: UITableViewController {
         //self.navigationItem.leftBarButtonItem = self.editButtonItem()
 
         println("Order Controller")
+        println(Model.sharedInstance.login())
         //let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
         //self.navigationItem.rightBarButtonItem = addButton
     }

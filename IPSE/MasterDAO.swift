@@ -1,0 +1,11 @@
+//
+//  MasterDAO.swift
+//  IPSE
+//
+//  Created by Monster on 22/05/2015.
+//  Copyright (c) 2015 rmit. All rights reserved.
+//
+//  This Class provides a layer of abstraction to decouple DAO from the model.
+//  This allows DAO to be changed without affecting the model.
+
+import Foundation
