@@ -10,7 +10,7 @@ import Foundation
 
 
 class Model {
-    private let dataAccessObject:BlueMixDAO
+    private let masterDataAccessObject:MasterDAO
     private struct Static
     {
         static private var instance:Model?
@@ -26,14 +26,18 @@ class Model {
     }
     
     private init(){
-        dataAccessObject = BlueMixDAO()
+        masterDataAccessObject = MasterDAO()
     }
     
     func getString() -> String{
         return "Testing the model --> GetString Method"
     }
     
-    func login() -> Bool{
-        return dataAccessObject.loginRequest()
+    func loginRequest() -> Bool{
+        return masterDataAccessObject.loginRequest()
+    }
+    
+    func getAllProducts() -> NSArray?{
+        return masterDataAccessObject.getAllProducts()
     }
 }
