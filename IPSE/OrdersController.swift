@@ -41,14 +41,14 @@ class OrdersController: UITableViewController {
 
     // MARK: - Segues
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let object = objects[indexPath.row] as NSDate
-            (segue.destinationViewController as MenuController).indexPathRow = indexPath.row
-            }
-        }
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "showDetail" {
+//            if let indexPath = self.tableView.indexPathForSelectedRow() {
+//                let object = objects[indexPath.row] as NSDate
+//            (segue.destinationViewController as MenuController).indexPathRow = indexPath.row
+//            }
+//        }
+//    }
 
     // MARK: - Table View
 

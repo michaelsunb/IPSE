@@ -15,8 +15,6 @@ class BlueMixDAO {
     }
     
     func loginRequest() -> Bool {
-        
-        
         let urlPath: String = "http:foodorderingsystem.mybluemix.net/login/login.php?username=Tony&password=pass"
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
@@ -37,9 +35,7 @@ class BlueMixDAO {
                         loginRequest = false
                     }
                 }
-                
             }
-            
         })
         
         println("calling DAO login")
