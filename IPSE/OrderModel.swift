@@ -80,20 +80,20 @@ class OrderModel {
             // Create an object based on the Entity
             let order = Order(entity: entity!,
                 insertIntoManagedObjectContext:managedContext)
-            order.id = id
-            order.item_id = item_id
-            order.profile_id = profile_id
+            order.identifier = id
             order.qty = qty
             order.start_date = start_date
-            order.end_date = end_date
+			order.end_date = end_date
+//          order.item_id = item_id
+//          order.profile_id = profile_id
             self.orders.append(order)
         } else {
-            existing!.id = id
-            existing!.item_id = item_id
-            existing!.profile_id = profile_id
+            existing!.identifier = id
             existing!.qty = qty
             existing!.start_date = start_date
-            existing!.end_date = end_date
+			existing!.end_date = end_date
+//          existing!.item_id = item_id
+//          existing!.profile_id = profile_id
         }
         
         // Check for errors and save

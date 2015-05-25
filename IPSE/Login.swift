@@ -9,8 +9,13 @@
 import Foundation
 import CoreData
 
+/**
+ * https://www.youtube.com/watch?v=K6PfveuxUEk
+ */
 class Login : NSManagedObject {
-    @NSManaged var id: Int
+    @NSManaged var identifier: String
     @NSManaged var username: String
     @NSManaged var password: String
+	@NSManaged var profile_id: String
+	@NSManaged var toProfile: Profile
 }

@@ -72,8 +72,8 @@ class ProductModel {
 		}
 	}
 	
-	func saveProduct(id: Int, name: String, desc:String,
-		cost:Float, product_image:String, existing: Product?)
+	func saveProduct(id: String, name: String, desc:String,
+		cost:Float, product_image:NSData, existing: Product?)
 	{
 		// Get a reference to your App Delegate
 		let appDelegate =
@@ -94,7 +94,7 @@ class ProductModel {
 			// Create an object based on the Entity
 			let product = Product(entity: entity!,
 				insertIntoManagedObjectContext:managedContext)
-			product.id = id
+			product.identifier = id
 			product.name = name
 			product.desc = desc
 			product.cost = cost
@@ -103,7 +103,7 @@ class ProductModel {
 		}
 		else
 		{
-			existing!.id = id
+			existing!.identifier = id
 			existing!.name = name
 			existing!.desc = desc
 			existing!.cost = cost

@@ -41,18 +41,18 @@ class ProfileController: UIViewController, UIAlertViewDelegate, UIPopoverControl
 	}
 
 	@IBAction func changeImage(sender: AnyObject) {
-		var alert:UIAlertController=UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+		var alert:UIAlertController=UIAlertController(title:"Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
 		
-		var cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.Default) {
+		var cameraAction = UIAlertAction(title:"Camera", style: UIAlertActionStyle.Default) {
 			UIAlertAction in
 			self.openCamera()
 		}
 		
-		var gallaryAction = UIAlertAction(title: "Gallary", style: UIAlertActionStyle.Default) {
+		var gallaryAction = UIAlertAction(title:"Gallary", style: UIAlertActionStyle.Default) {
 			UIAlertAction in self.openGallary()
 		}
 		
-		var cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) {
+		var cancelAction = UIAlertAction(title:"Cancel", style: UIAlertActionStyle.Cancel) {
 			UIAlertAction in
 		}
 		
@@ -74,7 +74,7 @@ class ProfileController: UIViewController, UIAlertViewDelegate, UIPopoverControl
 		if(UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)) {
 			// Check if the device supports the use of a camera
 			picker!.sourceType = UIImagePickerControllerSourceType.Camera
-			self .presentViewController(picker!, animated: true, completion: nil)
+			self.presentViewController(picker!, animated: true, completion: nil)
 		} else {
 			openGallary()
 		}

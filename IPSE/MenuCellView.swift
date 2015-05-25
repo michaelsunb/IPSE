@@ -15,4 +15,5 @@ class MenuCellView: UITableViewCell {
     @IBOutlet weak var myImageView: UIImageView!
 	@IBOutlet weak var QuantityStepper: UIStepper!
 	@IBOutlet weak var Quantity: UILabel!
+	@IBOutlet weak var price: UILabel!
 }

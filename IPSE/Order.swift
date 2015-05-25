@@ -10,10 +10,10 @@ import Foundation
 import CoreData
 
 class Order : NSManagedObject {
-    @NSManaged var id: Int
-    @NSManaged var item_id: Int
-    @NSManaged var profile_id: Int
+    @NSManaged var identifier: Int
     @NSManaged var qty: Int
     @NSManaged var start_date: String
-    @NSManaged var end_date: String
+	@NSManaged var end_date: String
+	@NSManaged var toProduct: Product
+	@NSManaged var toProfile: Profile
 }
