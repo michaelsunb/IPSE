@@ -11,6 +11,10 @@
 		00BC16651B1033E200C1502E /* BluemixDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC16641B1033E200C1502E /* BluemixDAO.swift */; };
 		00BC16671B1036FD00C1502E /* MasterDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC16661B1036FD00C1502E /* MasterDAO.swift */; };
 		00BECEB31B1373BB0007B617 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BECEB21B1373BB0007B617 /* Products.swift */; };
+		00BECEB41B13B5380007B617 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BECEB21B1373BB0007B617 /* Products.swift */; };
+		00BECEB51B13B80B0007B617 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BA352B1B0F3B1600E82DB9 /* Model.swift */; };
+		00BECEB61B13B8350007B617 /* MasterDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC16661B1036FD00C1502E /* MasterDAO.swift */; };
+		00BECEB71B13B8380007B617 /* BluemixDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC16641B1033E200C1502E /* BluemixDAO.swift */; };
 		00BF4A3D1B132F100012F297 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF4A3C1B132F100012F297 /* LoginViewController.swift */; };
 		930397011B05C09100430E6B /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930397001B05C09100430E6B /* Product.swift */; };
 		930397031B05C1E500430E6B /* Favourite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 930397021B05C1E500430E6B /* Favourite.swift */; };
@@ -342,15 +346,19 @@
 				CE3D643C1B1200E6006870A3 /* ProductTestAPI.swift in Sources */,
 				CEBA9FEC1B0B9C5F000C6262 /* Profile.swift in Sources */,
 				CE3D64361B11F74B006870A3 /* OrderModel.swift in Sources */,
+				00BECEB71B13B8380007B617 /* BluemixDAO.swift in Sources */,
+				00BECEB61B13B8350007B617 /* MasterDAO.swift in Sources */,
 				CEBA9FEB1B0B9C30000C6262 /* Order.swift in Sources */,
 				CE3D643E1B120831006870A3 /* MenuCellView.swift in Sources */,
 				CE3D643D1B120643006870A3 /* MenuController.swift in Sources */,
 				CE3D64391B11FBF6006870A3 /* ProductTest.swift in Sources */,
+				00BECEB51B13B80B0007B617 /* Model.swift in Sources */,
 				9322D4401B01C03100BC18BF /* IPSETests.swift in Sources */,
 				CEBA9FEA1B0B9B42000C6262 /* Favourite.swift in Sources */,
 				CEBA9FED1B0B9CEF000C6262 /* Login.swift in Sources */,
 				CE0691481B0AD355007206A4 /* AppDelegate.swift in Sources */,
 				930397071B05DC5500430E6B /* Product.swift in Sources */,
+				00BECEB41B13B5380007B617 /* Products.swift in Sources */,
 				934EC2CD1B0F3A1F00C4EFAB /* ProductModel.swift in Sources */,
 				939FEFD91B12B9B200AE4F58 /* ProfileController.swift in Sources */,
 			);

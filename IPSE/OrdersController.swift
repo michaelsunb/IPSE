@@ -20,7 +20,8 @@ class OrdersController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        println(getAllProducts())
+        getAllProducts()
+      //  println(getAllProducts())
         
         // Do any additional setup after loading the view, typically from a nib.
         //self.navigationItem.leftBarButtonItem = self.editButtonItem()
@@ -58,7 +59,7 @@ class OrdersController: UITableViewController {
                 }
                 
                 
-            (segue.destinationViewController as MenuController).images = images
+           // (segue.destinationViewController as MenuController).images = images
             }
         }
     }
@@ -77,6 +78,7 @@ class OrdersController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
 
         let object = objects[indexPath.row] as NSDate
+        
         cell.textLabel!.text = object.description
         return cell
     }
@@ -157,6 +159,7 @@ class OrdersController: UITableViewController {
     
     func getResultsProducts(productsArray:NSArray) {
         println("THIS IS THE GETRESULTSPRODUCTS")
+        println(Model.sharedInstance.getCount())
      //   println(productsArray)
     }
 

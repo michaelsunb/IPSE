@@ -58,6 +58,10 @@ class Model {
             println(productsArray[i].getName())
         }
     }
+    
+    func getCount() -> Int {
+        return productsArray.count
+    }
 //    
 //    func getProductResult() {
 //        println("This is the product Result")
