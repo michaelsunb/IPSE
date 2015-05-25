@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
             alert.message = "Please enter a username"
             alert.addButtonWithTitle("OK")
             alert.show()
+        // Password empty.
         }else if (password.text.isEmpty) {
             let alert = UIAlertView()
             alert.title = "No Password"
@@ -36,8 +37,6 @@ class LoginViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,23 +51,16 @@ class LoginViewController: UIViewController {
         var url: NSURL = NSURL(string: urlPath)!
         var request1: NSURLRequest = NSURLRequest(URL: url)
         let queue:NSOperationQueue = NSOperationQueue()
-        var loginRequest:Bool = false
         NSURLConnection.sendAsynchronousRequest(request1, queue: queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
             var err: NSError
             var jsonResult: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: nil)
-            // println("AsSynchronous\(jsonResult)")
             
             if let jsonDictionary = jsonResult as? NSDictionary {
                 if let success = jsonDictionary["Success"] as? NSString {
                     if success == "true" {
                         // User has permission to login.
-                        loginRequest = true
                         dispatch_async(dispatch_get_main_queue(), {
-                            //                            self.loginResponse(true)
-                            //                            if let loginDel = self.delegate {
-                            //                                loginDel.userDidEnterInformation("it is working")
-                            //                            }
-                       //     println("hello")
+
                             self.loginResult(true)
                         })
                     }else{
