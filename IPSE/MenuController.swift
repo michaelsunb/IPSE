@@ -37,18 +37,21 @@ class MenuController: UIViewController, UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        var cell:MenuCellView = tableView.dequeueReusableCellWithIdentifier("menuCell") as MenuCellView
+        var cell:MenuCellView = tableView.dequeueReusableCellWithIdentifier("menuCell", forIndexPath: indexPath) as MenuCellView
 
-        let product = products[indexPath.row]
+//        let product = products[indexPath.row]
 
-        cell.myLabel.text = product.name
-        cell.mySubtitle.text = product.desc
         
-        let testAPI = ProductTestAPI()
-        if let image:UIImage = testAPI.getMovie(product.product_image) {
-            cell.myImageView.image = image
-        }
-        println("The loaded image: \(cell.myImageView.image)")
+        cell.myLabel.text = "Hwllo"
+        cell.mySubtitle.text = "again"
+//        cell.myLabel.text = product.name
+//        cell.mySubtitle.text = product.desc
+        
+//        let testAPI = ProductTestAPI()
+//        if let image:UIImage = testAPI.getMovie(product.product_image) {
+//            cell.myImageView.image = image
+//        }
+//        println("The loaded image: \(cell.myImageView.image)")
 
         return cell;
     }

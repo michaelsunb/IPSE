@@ -11,6 +11,8 @@ import Foundation
 
 class Model {
     private let masterDataAccessObject:MasterDAO
+    private var productsArray = [Products]()
+    
     private struct Static
     {
         static private var instance:Model?
@@ -40,4 +42,24 @@ class Model {
     func getAllProducts() -> NSArray?{
         return masterDataAccessObject.getAllProducts()
     }
+    
+    func addProductToArray(product:Products) {
+        productsArray.append(product)
+    }
+    
+    func getAllProductsFromArray() -> [Products] {
+        return productsArray
+    }
+    
+    func iterateProducts() {
+        println("productArray size is ")
+        println(productsArray.count)
+        for var i=0; i < productsArray.count; i++ {
+            println(productsArray[i].getName())
+        }
+    }
+//    
+//    func getProductResult() {
+//        println("This is the product Result")
+//    }
 }

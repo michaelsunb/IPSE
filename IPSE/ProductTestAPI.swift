@@ -81,7 +81,7 @@ class ProductTestAPI
 				let parsedResult: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &parsingError)
 				
 				// Log the results to the console, so you can see what is being sent back from the service.
-				println(parsedResult)
+		//		println(parsedResult)
 				
 				// Extract an element from the data as an array, if your JSON response returns a dictionary
 				// you will need to convert it to an NSDictionary
@@ -132,7 +132,7 @@ class ProductTestAPI
 		let getRandomImage : String = BASE_URL + MOVIE_DETAILS + movieId + "/images" + API_KEY
 		let newString : String = getRandomImage.stringByReplacingOccurrencesOfString("[\\s\\;\\'\\&\n]", withString: "", options: .RegularExpressionSearch, range: nil);
 		
-		println(newString);
+	//	println(newString);
 		
     if let url = NSURL(string: newString) {
       let request = NSURLRequest(URL: url)
@@ -168,7 +168,7 @@ class ProductTestAPI
               let fullImageUrlString = baseImageUrlString + imageUrlString!
               let imageURL = NSURL(string: fullImageUrlString)
               
-              println(fullImageUrlString);
+        //      println(fullImageUrlString);
               
               // If the image exists at the url specified set the UIImageView to reference that image
               if let imageData = NSData(contentsOfURL: imageURL!) {
@@ -179,7 +179,7 @@ class ProductTestAPI
               }
               else
               {
-                println("Image does not exist at \(imageURL)")
+        //        println("Image does not exist at \(imageURL)")
               }
             }
           }

@@ -23,7 +23,7 @@ class BlueMixDAO {
         NSURLConnection.sendAsynchronousRequest(request1, queue: queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
             var err: NSError
             var jsonResult: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: nil)
-            println("AsSynchronous\(jsonResult)")
+//            println("AsSynchronous\(jsonResult)")
             
             if let jsonDictionary = jsonResult as? NSDictionary {
                 if let success = jsonDictionary["Success"] as? NSString {
@@ -38,7 +38,7 @@ class BlueMixDAO {
             }
         })
         
-        println("calling DAO login")
+//        println("calling DAO login")
         return loginRequest
     }
     
@@ -53,17 +53,20 @@ class BlueMixDAO {
             var err: NSError
             var jsonResult: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: nil)
             
-            println("AsSynchronous\(jsonResult)")
+//            println("AsSynchronous\(jsonResult)")
             
             if let jsonDictionary = jsonResult as? NSDictionary {
                 if let productsArray = jsonDictionary["products"] as? NSArray {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        
+                    })
                     productArray = productsArray
                     
                 }
             }
             
         })
-        
+        println(productArray)
         return productArray?
     }
     

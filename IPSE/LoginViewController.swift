@@ -37,6 +37,8 @@ class LoginViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        println(Model.sharedInstance.getAllProducts())
     }
 
     override func didReceiveMemoryWarning() {

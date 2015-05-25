@@ -66,7 +66,7 @@ class ProductModel {
         if fetchedResults.count > 0 {
             products = fetchedResults
         } else {
-            println("Could not fetch \(error), \(error!.userInfo)")
+     //       println("Could not fetch \(error), \(error!.userInfo)")
         }
     }
     
@@ -112,7 +112,7 @@ class ProductModel {
         // Check for errors and save
         var error: NSError?
         if !managedContext.save(&error) {
-            println("Could not save \(error), \(error?.userInfo)")
+  //          println("Could not save \(error), \(error?.userInfo)")
         }
     }
     
