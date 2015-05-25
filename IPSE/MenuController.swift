@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuController: UITableViewController {
+class MenuController: UIViewController, UITableViewDelegate {
     let products:[ProductTest] = ProductModel.sharedInstance.getProductTest()
     var images:[String:UIImage]?
 
@@ -22,20 +22,20 @@ class MenuController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products.count
     }
     
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         var cell:MenuCellView = tableView.dequeueReusableCellWithIdentifier("menuCell") as MenuCellView
 
