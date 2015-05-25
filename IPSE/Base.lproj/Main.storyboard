@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9cX-Gr-pGg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9cX-Gr-pGg">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -152,10 +152,10 @@
             </objects>
             <point key="canvasLocation" x="888" y="647"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="3Pk-jl-aDs">
             <objects>
-                <viewController id="9cX-Gr-pGg" sceneMemberID="viewController">
+                <viewController id="9cX-Gr-pGg" customClass="LoginViewController" customModule="IPSE" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SHl-YD-c2I"/>
                         <viewControllerLayoutGuide type="bottom" id="1FY-jH-pV1"/>
@@ -164,7 +164,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zep-Ck-5Q5">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zep-Ck-5Q5">
                                 <rect key="frame" x="172" y="154" width="256" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="zep-Ck-5Q5" secondAttribute="height" multiplier="128:15" id="DPV-vZ-W5j"/>
@@ -177,8 +177,11 @@
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginButton:" destination="9cX-Gr-pGg" eventType="touchUpInside" id="1JC-Y9-Aqm"/>
+                                </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1bp-Kv-zyw">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1bp-Kv-zyw">
                                 <rect key="frame" x="172" y="76" width="256" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="1bp-Kv-zyw" secondAttribute="height" multiplier="128:15" id="11L-bQ-2vx"/>
@@ -198,6 +201,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="password" destination="zep-Ck-5Q5" id="qbm-nv-Yyy"/>
+                        <outlet property="username" destination="1bp-Kv-zyw" id="gRr-Lq-dfc"/>
                         <segue destination="og8-mP-Q8s" kind="show" identifier="login" id="m22-6n-qq9"/>
                     </connections>
                 </viewController>
