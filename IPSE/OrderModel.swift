@@ -55,7 +55,7 @@ class OrderModel {
         if fetchedResults.count > 0 {
             orders = fetchedResults
         } else {
-            println("Could not fetch \(error), \(error!.userInfo)")
+     //       println("Could not fetch \(error), \(error!.userInfo)")
         }
     }
     
@@ -99,7 +99,7 @@ class OrderModel {
         // Check for errors and save
         var error: NSError?
         if !managedContext.save(&error) {
-            println("Could not save \(error), \(error?.userInfo)")
+     //       println("Could not save \(error), \(error?.userInfo)")
         }
     }
     
