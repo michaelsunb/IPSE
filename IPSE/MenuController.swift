@@ -10,6 +10,7 @@ import UIKit
 
 class MenuController: UITableViewController {
     let products:[ProductTest] = ProductModel.sharedInstance.getProductTest()
+    var images:[String:UIImage]?
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -15,8 +15,28 @@ class ProductTestAPI
 	var titleOfMovie:String?
 	var movieSubTitle:String?
 	var movieId:String?
-	
-	// Sets up a networking session
+    
+    
+    /**
+    * Reference to thread safe singleton at bottom on page
+    * http://code.martinrue.com/posts/the-singleton-pattern-in-swift
+    */
+    class var sharedInstance: ProductTestAPI {
+        struct Static {
+            static var instance: ProductTestAPI?
+            static var token: dispatch_once_t = 0
+        }
+        
+        dispatch_once(&Static.token) {
+            Static.instance = ProductTestAPI()
+        }
+        
+        return Static.instance!
+    }
+    
+    
+    
+    // Sets up a networking session
 	let session = NSURLSession.sharedSession()
 	
 	// Constants for building various url requests to the service
@@ -24,7 +44,7 @@ class ProductTestAPI
 	let SEARCH_MOVIE:String = "search/movie"
 	let MOVIE_DETAILS:String = "movie/"
 	let IMAGES_LOCATION = "images"
-	let API_KEY :String = "?api_key=38a0ad9bee09ff0c5ff0684178505e65"
+	let API_KEY :String = "?api_key=5773cfe9c65c621911d8601f1a3d08c2"
 	var ID_LENGTH:Int  = 0
     
     init() {
@@ -114,58 +134,60 @@ class ProductTestAPI
 		
 		println(newString);
 		
-		let url = NSURL(string: newString)!
-		let request = NSURLRequest(URL: url)
-		// Initialise the task for getting the data
-		let task = session.dataTaskWithRequest(request) {data, response, downloadError in
-			if let error = downloadError
-			{
-			}
-			else
-			{
-				// Parse the data received from the service
-				var parsingError: NSError? = nil
-				let parsedResult: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &parsingError)
-				
-				// Extract an element from the data as an array, if your JSON response returns a dictionary
-				// you will need to convert it to an NSDictionary
-				if let photosArray = parsedResult.valueForKey("backdrops") as? NSArray {
-					
-					if(photosArray.count != 0) {
-						// Grab a random image from the array
-						let randomPhotoIndex = Int(arc4random_uniform(UInt32(photosArray.count)))
-						
-						// This time, I can convert to an NSDictionary, even though it is illformed
-						// the attribute I am after is quoted and so I can access it from the dictionary
-						let imageDictionary = photosArray[randomPhotoIndex] as? NSDictionary
-						
-						// Extract a random image url from the dictionary
-						let imageUrlString = imageDictionary?.valueForKey("file_path") as? NSString
-						
-						// Build the full url of the image
-						let baseImageUrlString = "https://image.tmdb.org/t/p/original"
-						let fullImageUrlString = baseImageUrlString + imageUrlString!
-						let imageURL = NSURL(string: fullImageUrlString)
-						
-						println(fullImageUrlString);
-						
-						// If the image exists at the url specified set the UIImageView to reference that image
-						if let imageData = NSData(contentsOfURL: imageURL!) {
-							dispatch_async(dispatch_get_main_queue(), {
-								self.image.image = UIImage(data: imageData)
-								
-							})
-						}
-						else
-						{
-							println("Image does not exist at \(imageURL)")
-						}
-					}
-				}
-			}
-		}
-		// Execute the task
-		task.resume()
+    if let url = NSURL(string: newString) {
+      let request = NSURLRequest(URL: url)
+      
+      // Initialise the task for getting the data
+      let task = session.dataTaskWithRequest(request) {data, response, downloadError in
+        if let error = downloadError
+        {
+        }
+        else
+        {
+          // Parse the data received from the service
+          var parsingError: NSError? = nil
+          let parsedResult: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &parsingError)
+          
+          // Extract an element from the data as an array, if your JSON response returns a dictionary
+          // you will need to convert it to an NSDictionary
+          if let photosArray = parsedResult.valueForKey("backdrops") as? NSArray {
+            
+            if(photosArray.count != 0) {
+              // Grab a random image from the array
+              let randomPhotoIndex = Int(arc4random_uniform(UInt32(photosArray.count)))
+              
+              // This time, I can convert to an NSDictionary, even though it is illformed
+              // the attribute I am after is quoted and so I can access it from the dictionary
+              let imageDictionary = photosArray[randomPhotoIndex] as? NSDictionary
+              
+              // Extract a random image url from the dictionary
+              let imageUrlString = imageDictionary?.valueForKey("file_path") as? NSString
+              
+              // Build the full url of the image
+              let baseImageUrlString = "https://image.tmdb.org/t/p/original"
+              let fullImageUrlString = baseImageUrlString + imageUrlString!
+              let imageURL = NSURL(string: fullImageUrlString)
+              
+              println(fullImageUrlString);
+              
+              // If the image exists at the url specified set the UIImageView to reference that image
+              if let imageData = NSData(contentsOfURL: imageURL!) {
+                dispatch_async(dispatch_get_main_queue(), {
+                  self.image.image = UIImage(data: imageData)
+                  
+                })
+              }
+              else
+              {
+                println("Image does not exist at \(imageURL)")
+              }
+            }
+          }
+        }
+      }
+      // Execute the task
+      task.resume()
+    }
 	}
 	
 	// https://

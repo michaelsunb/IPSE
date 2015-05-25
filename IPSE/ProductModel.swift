@@ -22,7 +22,7 @@ class ProductModel {
         //loadTable()
         productsTest = [ProductTest(id:0,name:"name1",desc:"desc1",cost:(4.20) as Float, product_image:"Terminator"),
         ProductTest(id:1,name:"name2",desc:"this will be a picture about avengers",cost:(1.23) as Float,product_image:"Avengers"),
-        ProductTest(id:2,name:"name3",desc:"test3",cost:6.66,product_image:"50 Shades of Grey")]
+        ProductTest(id:2,name:"name3",desc:"test3",cost:6.66,product_image:"Fifty Shades of Grey")]
     }
     
     func getProductTest()->[ProductTest] {
@@ -38,9 +38,8 @@ class ProductModel {
         return products
     }
     
-    func getFirstProduct() -> Product?
-    {
-        if (products.count > 0)        {
+    func getFirstProduct() -> Product? {
+        if (products.count > 0) {
             return products[0]
         }
         return nil

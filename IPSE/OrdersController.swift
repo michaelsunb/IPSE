@@ -41,14 +41,24 @@ class OrdersController: UITableViewController {
 
     // MARK: - Segues
 
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "showDetail" {
-//            if let indexPath = self.tableView.indexPathForSelectedRow() {
-//                let object = objects[indexPath.row] as NSDate
-//            (segue.destinationViewController as MenuController).indexPathRow = indexPath.row
-//            }
-//        }
-//    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showDetail" {
+            
+            
+            if let indexPath = self.tableView.indexPathForSelectedRow() {
+                
+                var images:[String:UIImage] = [String:UIImage]()
+                for product in ProductModel.sharedInstance.getProductTest() {
+                    if let image = ProductTestAPI.sharedInstance.getMovie(product.product_image) {
+                        images[product.product_image] = image
+                    }
+                }
+                
+                
+            (segue.destinationViewController as MenuController).images = images
+            }
+        }
+    }
 
     // MARK: - Table View
 
