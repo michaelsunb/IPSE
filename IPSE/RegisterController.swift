@@ -47,8 +47,8 @@ class RegisterController: UIViewController, UITextFieldDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
-		//profileModel.getModel()
-		//loginModel.getModel()
+//		profileModel.getModel()		// TODO
+//		loginModel.getModel()		// TODO
 
 		self.nameText.delegate = self;
 		self.lastText.delegate = self;
