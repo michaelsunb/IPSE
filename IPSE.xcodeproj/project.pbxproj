@@ -11,6 +11,8 @@
 		00BC16651B1033E200C1502E /* BluemixDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC16641B1033E200C1502E /* BluemixDAO.swift */; };
 		00BC16671B1036FD00C1502E /* MasterDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BC16661B1036FD00C1502E /* MasterDAO.swift */; };
 		00BF4A3D1B132F100012F297 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF4A3C1B132F100012F297 /* LoginViewController.swift */; };
+		00CBB0001B144C1F00E42BB2 /* OrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CBAFFF1B144C1F00E42BB2 /* OrdersTableViewCell.swift */; };
+		00CBB0011B144F2A00E42BB2 /* OrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CBAFFF1B144C1F00E42BB2 /* OrdersTableViewCell.swift */; };
 		9322D4271B01C03000BC18BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9322D4261B01C03000BC18BF /* AppDelegate.swift */; };
 		9322D42A1B01C03000BC18BF /* IPSE.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9322D4281B01C03000BC18BF /* IPSE.xcdatamodeld */; };
 		9322D42C1B01C03000BC18BF /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9322D42B1B01C03000BC18BF /* MenuController.swift */; };
@@ -74,6 +76,7 @@
 		00BC16641B1033E200C1502E /* BluemixDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluemixDAO.swift; sourceTree = "<group>"; };
 		00BC16661B1036FD00C1502E /* MasterDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterDAO.swift; sourceTree = "<group>"; };
 		00BF4A3C1B132F100012F297 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		00CBAFFF1B144C1F00E42BB2 /* OrdersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdersTableViewCell.swift; sourceTree = "<group>"; };
 		9322D4211B01C03000BC18BF /* IPSE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IPSE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9322D4251B01C03000BC18BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9322D4261B01C03000BC18BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -226,6 +229,7 @@
 			children = (
 				9322D42D1B01C03100BC18BF /* Main.storyboard */,
 				CE3D64321B11F128006870A3 /* MenuCellView.swift */,
+				00CBAFFF1B144C1F00E42BB2 /* OrdersTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -354,6 +358,7 @@
 				CE3D64381B11FBF6006870A3 /* ProductTest.swift in Sources */,
 				93B530691B13BA75005028E5 /* Product.swift in Sources */,
 				9322D4271B01C03000BC18BF /* AppDelegate.swift in Sources */,
+				00CBB0001B144C1F00E42BB2 /* OrdersTableViewCell.swift in Sources */,
 				934EC2CC1B0F3A1F00C4EFAB /* ProductModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,6 +389,7 @@
 				93B530711B13BFFB005028E5 /* BluemixDAO.swift in Sources */,
 				93B530721B13C004005028E5 /* Model.swift in Sources */,
 				939FEFD91B12B9B200AE4F58 /* ProfileController.swift in Sources */,
+				00CBB0011B144F2A00E42BB2 /* OrdersTableViewCell.swift in Sources */,
 				93B5305E1B138171005028E5 /* ProfileModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

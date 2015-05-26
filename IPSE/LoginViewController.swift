@@ -58,15 +58,23 @@ class LoginViewController: UIViewController {
 			var jsonResult: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: nil)
 			
 			if let jsonDictionary = jsonResult as? NSDictionary {
+                if let userID = jsonDictionary["id"] as? NSInteger {
+                    Model.sharedInstance.setLoggedInUser(userID)
+         //           println(userID)
+         //           println("userID is above")
+                }
 				if let success = jsonDictionary["Success"] as? NSString {
+                    
 					if success == "true" {
 						// User has permission to login.
 						dispatch_async(dispatch_get_main_queue(),{
-							self.loginResult(true)
+                            self.getOrdersForUser()
+//							self.loginResult(true)
 						})
 					}else{
 						if(LoginModel.sharedInstance.checkUserPass(self.username.text, password: self.password.text)) {
-							self.loginResult(true)
+                            self.getOrdersForUser()
+//							self.loginResult(true)
 							return
 						}
 						
@@ -85,11 +93,82 @@ class LoginViewController: UIViewController {
 		
 		// println("calling DAO login")
 	}
-	
+	// foodorderingsystem.mybluemix.net/orders/getorderid.php?accountid=4
 	func loginResult(result:Bool) {
 		//println(result)
 		self.performSegueWithIdentifier("login", sender: nil)
 	}
+    
+    
+    func getOrdersForUser(){
+        let urlPath: String = "http://foodorderingsystem.mybluemix.net/orders/getorderid.php?accountid=\(Model.sharedInstance.getLoggedInUser())"
+        var url: NSURL = NSURL(string: urlPath)!
+        var request1: NSURLRequest = NSURLRequest(URL: url)
+        let queue:NSOperationQueue = NSOperationQueue()
+        NSURLConnection.sendAsynchronousRequest(request1, queue: queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+            var err: NSError
+            var jsonResult: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: nil)
+    //        println(jsonResult)
+    //        println("--------------->>>><<<-------------")
+    //        println(Model.sharedInstance.getLoggedInUser())
+            var tempOrderArray = [Int]()
+            if let jsonDictionary = jsonResult as? NSDictionary {
+                if let orderIDArray = jsonDictionary["products"] as? NSArray {
+                    for var i = 0; i < orderIDArray.count; i++ {
+                        if var orderIDobj = orderIDArray[i] as? NSDictionary {
+                            println("order     IDOP")
+                            println(orderIDobj)
+                            if var orderIDic = orderIDobj["orderID"] as? NSInteger{
+                                tempOrderArray.append(orderIDic)
+                                println(orderIDic)
+                                println("below)")
+                                
+                                
+                            }
+                            println("above this ==============++++++")
+                        }
+                        
+                    }
+
+                    //           println(userID)
+                    //           println("userID is above")
+                }
+                // Add orderID to model
+                Model.sharedInstance.setOrderID(tempOrderArray)
+                
+                dispatch_async(dispatch_get_main_queue(),{
+//                    self.getOrdersForUser()
+                    self.loginResult(true)
+                })
+                
+//                if let success = jsonDictionary["Success"] as? NSString {
+//                    
+//                    if success == "true" {
+//                        // User has permission to login.
+//                        dispatch_async(dispatch_get_main_queue(),{
+//                            self.loginResult(true)
+//                        })
+//                    }else{
+//                        if(LoginModel.sharedInstance.checkUserPass(self.username.text, password: self.password.text)) {
+//                            self.loginResult(true)
+//                            return
+//                        }
+//                        
+//                        // User does not have permission to login.
+//                        // Login failed
+//                        let alert = UIAlertView()
+//                        alert.title = "Failed Login"
+//                        alert.message = "The username or password was wrong. Please try again"
+//                        alert.addButtonWithTitle("OK")
+//                        alert.show()
+//                    }
+//                }
+            }
+            
+        })
+        
+        // println("calling DAO login")
+    }
 	
 	
 	

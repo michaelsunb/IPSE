@@ -20,6 +20,7 @@ class OrdersController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        println(Model.sharedInstance.getOrderID())
         getAllProducts()
       //  println(getAllProducts())
         
@@ -71,15 +72,16 @@ class OrdersController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        return Model.sharedInstance.getOrderID().count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
-
-        let object = objects[indexPath.row] as NSDate
         
-        cell.textLabel!.text = object.description
+        var cell:OrdersTableViewCell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as OrdersTableViewCell
+        
+        cell.OrderIDLabel.text = String(Model.sharedInstance.getOrderID()[indexPath.row] + 1000000)
+        
+//        cell.textLabel!.text = String(Model.sharedInstance.getOrderID()[indexPath.row])
         return cell
     }
 
