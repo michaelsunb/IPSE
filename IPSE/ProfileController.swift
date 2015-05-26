@@ -12,9 +12,9 @@ class ProfileController: UIViewController, UIAlertViewDelegate, UIPopoverControl
 {
 	@IBOutlet var image: UIImageView!
 	
+    @IBOutlet weak var surname: UILabel!
+    @IBOutlet weak var name: UILabel!
 	@IBOutlet var saveImage: UIButton!
-	@IBOutlet var txtMovieTitle: UITextField!
-	@IBOutlet var txtMovieSubTitle: UITextField!
 	var existingItem: Profile!
 	var titleOfMovie:String?
 	var movieSubTitle:String?
@@ -24,21 +24,10 @@ class ProfileController: UIViewController, UIAlertViewDelegate, UIPopoverControl
 	let session = NSURLSession.sharedSession()
 	var tableView:UITableView!
 	var model = ProfileModel.sharedInstance
-	
-	// Constants for building various url requests to the service
-	let BASE_URL:String = "https://api.themoviedb.org/3/"
-	let SEARCH_MOVIE:String = "search/movie"
-	let MOVIE_DETAILS:String = "movie/"
-	let IMAGES_LOCATION = "images"
-	let API_KEY :String = "?api_key=5773cfe9c65c621911d8601f1a3d08c2"
-	var ID_LENGTH:Int  = 0
-	
+
 	var picker:UIImagePickerController?=UIImagePickerController()
 	var popover:UIPopoverController?=nil
-	
-	@IBAction func saveImage(sender: AnyObject) {
-		UIImageWriteToSavedPhotosAlbum(image.image, nil, nil, nil);
-	}
+
 
 	@IBAction func changeImage(sender: AnyObject) {
 		var alert:UIAlertController=UIAlertController(title:"Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
@@ -104,23 +93,8 @@ class ProfileController: UIViewController, UIAlertViewDelegate, UIPopoverControl
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		picker?.delegate = self
-		tableView = model.getTableView()
-		if(!model.appLoad) {
-			// loads the first movie into the detail view when split screen is being used
-			if let navController = splitViewController?.viewControllers[0] as? UINavigationController {
-				model.appLoad = true
-				txtMovieTitle.text = model.getFirstModel()?.first_name
-				txtMovieSubTitle.text = model.getFirstModel()?.last_name
-				
-				navController.popViewControllerAnimated(true)
-			}
-		}
-
-		if (existingItem != nil) {
-			txtMovieSubTitle.text = movieSubTitle
-			txtMovieTitle.text = titleOfMovie
-		}
+        name.text = Model.sharedInstance.getFirstName()
+        surname.text = Model.sharedInstance.getLastName()
 	}
 	
 	@IBAction func save(sender: AnyObject) {

@@ -13,12 +13,12 @@ struct MenuCell {
     var id:Int
     var title:String
     var qty:Int
-    //	var price:Int
+	var price:Int
     
-    init(id:Int,title:String,qty:Int) {
+    init(id:Int,title:String,qty:Int,price:Int) {
         self.id = id
         self.title = title
         self.qty = qty
-        //		self.price = price
+		self.price = price
     }
 }

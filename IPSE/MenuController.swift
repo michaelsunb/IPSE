@@ -16,13 +16,17 @@ class MenuController: UIViewController, UITableViewDelegate, UITableViewDataSour
             println("id: \(menuCell.id)")
             println("title: \( menuCell.title)")
             println("qty: \(menuCell.qty)")
-//            println("price: \(menuCell.price)")
+            println("price: \(menuCell.price)")
+//            orderModel.saveModel(qty: menuCell.qty, start_date: String, end_date: <#String#>, toProduct: <#Product#>)
         }
 	}
-	
+
+    var orderModel = OrderModel.sharedInstance
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		println(Model.sharedInstance.getAllProducts())
+        orderModel.getModel()
 	}
 	
     override func didReceiveMemoryWarning() {
@@ -89,11 +93,7 @@ class MenuController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	 * http://stackoverflow.com/questions/28315133/swift-pass-uitableviewcell-label-to-new-viewcontroller
 	 */
 	func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-		println("You selected cell #\(indexPath.row)!")
-//		println(tableView.numberOfSections())
-
 		// Get Cell Label
-		// let indexPath = tableView.indexPathForSelectedRow();
 		let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as MenuCellView!;
 		
 		let title = currentCell.myLabel.text
@@ -106,24 +106,30 @@ class MenuController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else {
             return
         }
-        println(index)
-        
+
 		var tit:String
 		var qty:Int
 		var pri:Int
+
 		if let titleCell = title {
 			tit = titleCell
 		} else {
 			return
         }
-        println(tit)
+
 		if let qtyCell = quantity {
 			qty = qtyCell
 		} else {
 			return
         }
-        println(qty)
-		menuCells.append(MenuCell(id:index,title:tit,qty:qty))
+        
+        if let priceCell = price {
+            pri = qtyCell
+        } else {
+            return
+        }
+
+        menuCells.append(MenuCell(id:index,title:tit,qty:qty,price:pri))
         println(menuCells.count)
 	}
 }

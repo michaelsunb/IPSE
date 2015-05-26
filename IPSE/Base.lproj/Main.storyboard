@@ -225,18 +225,42 @@
                                     <constraint firstAttribute="width" constant="222" id="K4d-xX-vtQ"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYK-E6-NhL">
+                                <rect key="frame" x="206" y="336" width="188" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="188" id="LTi-fX-9Di"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQb-8Z-65x">
+                                <rect key="frame" x="206" y="365" width="188" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="188" id="SBh-uM-wLj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="yMi-fs-Qdf" secondAttribute="centerY" constant="80.5" id="8yG-Sh-6mA"/>
+                            <constraint firstItem="YYK-E6-NhL" firstAttribute="top" secondItem="yMi-fs-Qdf" secondAttribute="bottom" constant="23" id="CZJ-YZ-VNV"/>
                             <constraint firstAttribute="centerX" secondItem="XPm-Ef-iTt" secondAttribute="centerX" id="Iaa-lo-Hco"/>
                             <constraint firstAttribute="centerY" secondItem="XPm-Ef-iTt" secondAttribute="centerY" constant="80.5" id="Oa8-c1-3pn"/>
                             <constraint firstAttribute="centerX" secondItem="yMi-fs-Qdf" secondAttribute="centerX" id="ev5-HH-ezO"/>
+                            <constraint firstItem="rQb-8Z-65x" firstAttribute="leading" secondItem="RAv-7b-ihz" secondAttribute="leadingMargin" constant="190" id="mZp-0r-nhE"/>
+                            <constraint firstItem="rQb-8Z-65x" firstAttribute="top" secondItem="YYK-E6-NhL" secondAttribute="bottom" constant="8" id="wfZ-op-grk"/>
+                            <constraint firstItem="YYK-E6-NhL" firstAttribute="leading" secondItem="RAv-7b-ihz" secondAttribute="leadingMargin" constant="190" id="xTD-NP-Tfk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="ux2-EB-DOG"/>
                     <connections>
                         <outlet property="image" destination="yMi-fs-Qdf" id="slm-aW-Abg"/>
+                        <outlet property="name" destination="YYK-E6-NhL" id="acG-jM-mhZ"/>
+                        <outlet property="surname" destination="rQb-8Z-65x" id="epT-JA-MdO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ro-ao-XvT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -497,7 +521,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="3NP-U6-e50"/>
-        <segue reference="VqB-rz-VKn"/>
+        <segue reference="Ooh-w3-bXH"/>
         <segue reference="dFg-RN-2Iv"/>
     </inferredMetricsTieBreakers>
 </document>
