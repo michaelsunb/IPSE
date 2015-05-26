@@ -21,7 +21,10 @@ class OrderModel {
         return nil
     }
     
-    func getModel() {
+	func getModel() {
+		if(orders.count <= 0) {
+			return
+		}
         // Get a reference to your App Delegate
         let appDelegate =
         UIApplication.sharedApplication().delegate as AppDelegate
@@ -46,7 +49,7 @@ class OrderModel {
                 println(res)
             }
         } else {
-            println("Could not fetch \(error), \(error!.userInfo)")
+            //println("Could not fetch \(error), \(error!.userInfo)")
         }
     }
     

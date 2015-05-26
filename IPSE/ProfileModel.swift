@@ -57,6 +57,9 @@ class ProfileModel {
     }
 	
 	func getModel() {
+		if(profiles.count <= 0) {
+			return
+		}
 		// Get a reference to your App Delegate
 		let appDelegate =
 		UIApplication.sharedApplication().delegate as AppDelegate
@@ -77,7 +80,11 @@ class ProfileModel {
 		
 		// Assign the results to the Model
 		if fetchedResults.count > 0 {
+            var profilez:[Profile]
             for res in fetchedResults {
+//                let id: Int? = res.valueForKey("identifier") as? Int
+//                let first_name: String? = res.valueForKey("first_name") as? String
+//                let last_name: String? = res.valueForKey("last_name") as? String
                 println(res)
             }
 		} else {
@@ -108,7 +115,30 @@ class ProfileModel {
         }
 		
         self.profiles.append(Profile(identifier: String(self.profiles.count),first_name:first_name,last_name:last_name))
-		
-		
-	}
+    }
+    
+    func updateModel(id:String,first_name: String,last_name:String) {
+        // Get a reference to your App Delegate
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as AppDelegate
+        
+        // Get a reference to a ManagedObjectContext for interacting with
+        // the underlying database
+        let managedContext = appDelegate.managedObjectContext!
+        
+        // Get a entity from the database that represents the table your are
+        // wishing to work with
+        let entity: NSManagedObject =  NSEntityDescription.insertNewObjectForEntityForName("Profiles", inManagedObjectContext: managedContext) as NSManagedObject
+        
+        entity.setValue(String(self.profiles.count), forKey:"identifier")
+        entity.setValue(first_name, forKey:"first_name")
+        entity.setValue(last_name, forKey:"last_name")
+        
+        var error: NSError?
+        if !managedContext.save(&error) {
+            println("Could not save \(error), \(error?.userInfo)")
+        }
+        
+        self.profiles.append(Profile(identifier: String(self.profiles.count),first_name:first_name,last_name:last_name))
+    }
 }

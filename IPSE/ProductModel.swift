@@ -43,7 +43,11 @@ class ProductModel {
         }
     }
     
-    func saveModel(name:String,cost:Int,desc:String) {
+	func saveModel(name:String,cost:Int,desc:String) {
+		if (products.count <= 0) {
+			return
+		}
+		
         // Get a reference to your App Delegate
         let appDelegate =
         UIApplication.sharedApplication().delegate as AppDelegate

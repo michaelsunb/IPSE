@@ -93,6 +93,16 @@ class ProfileController: UIViewController, UIAlertViewDelegate, UIPopoverControl
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		picker?.delegate = self
+		tableView = model.getTableView()
+		if(!model.appLoad) {
+			if let navController = splitViewController?.viewControllers[0] as? UINavigationController {
+				model.appLoad = true
+				navController.popViewControllerAnimated(true)
+			}
+		}
+
         name.text = Model.sharedInstance.getFirstName()
         surname.text = Model.sharedInstance.getLastName()
 	}
