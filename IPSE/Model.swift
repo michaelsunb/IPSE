@@ -14,6 +14,8 @@ class Model {
     private var productsArray = [Products]()
     private var loggedInUserID = 0
     private var orderIDArray = [Int]()
+    private var firstName = String()
+    private var lastName = String()
     private struct Static
     {
         static private var instance:Model?
@@ -77,6 +79,19 @@ class Model {
     
     func getOrderID() -> [Int] {
         return orderIDArray
+    }
+    
+    func setFirstName(firstName:String) {
+        self.firstName = firstName
+    }
+    func getFirstName() ->String {
+        return firstName
+    }
+    func getLastName() -> String {
+        return lastName
+    }
+    func setLastName(lastName:String) {
+        self.lastName = lastName
     }
 //    
 //    func getProductResult() {

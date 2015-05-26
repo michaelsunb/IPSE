@@ -35,11 +35,14 @@ class LoginViewController: UIViewController {
 		
 		
 	}
+    
+    var profileModel = ProfileModel.sharedInstance
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		for login in LoginModel.sharedInstance.logins {
 			println("username: " + login.username + "\t password: " + login.password)
 		}
+        profileModel.getModel()
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -138,39 +141,57 @@ class LoginViewController: UIViewController {
                 
                 dispatch_async(dispatch_get_main_queue(),{
 //                    self.getOrdersForUser()
-                    self.loginResult(true)
+                    self.getUserInfo()
                 })
-                
-//                if let success = jsonDictionary["Success"] as? NSString {
-//                    
-//                    if success == "true" {
-//                        // User has permission to login.
-//                        dispatch_async(dispatch_get_main_queue(),{
-//                            self.loginResult(true)
-//                        })
-//                    }else{
-//                        if(LoginModel.sharedInstance.checkUserPass(self.username.text, password: self.password.text)) {
-//                            self.loginResult(true)
-//                            return
-//                        }
-//                        
-//                        // User does not have permission to login.
-//                        // Login failed
-//                        let alert = UIAlertView()
-//                        alert.title = "Failed Login"
-//                        alert.message = "The username or password was wrong. Please try again"
-//                        alert.addButtonWithTitle("OK")
-//                        alert.show()
-//                    }
-//                }
             }
-            
         })
-        
-        // println("calling DAO login")
     }
 	
 	
+    
+    func getUserInfo(){
+        let urlPath: String = "http://foodorderingsystem.mybluemix.net/products/user.php?accountid=\(Model.sharedInstance.getLoggedInUser())"
+        var url: NSURL = NSURL(string: urlPath)!
+        var request1: NSURLRequest = NSURLRequest(URL: url)
+        let queue:NSOperationQueue = NSOperationQueue()
+        NSURLConnection.sendAsynchronousRequest(request1, queue: queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+            var err: NSError
+            var jsonResult: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: nil)
+            //        println(jsonResult)
+            //        println("--------------->>>><<<-------------")
+            //        println(Model.sharedInstance.getLoggedInUser())
+            var tempOrderArray = [Int]()
+            if let jsonDictionary = jsonResult as? NSDictionary {
+                if let orderIDArray = jsonDictionary["products"] as? NSArray {
+                    if let credentials = orderIDArray[0] as? NSDictionary {
+                        var firstn:String
+                        var lastn:String
+                        if let firstname = credentials["firstname"] as? String {
+                            Model.sharedInstance.setFirstName(firstname)
+                            if let lastname = credentials["lastname"] as? String {
+//                                self.profileModel.saveModel(firstname, last_name: lastname)
+                                
+                                Model.sharedInstance.setLastName(lastname)
+                            }
+                        }
+                    }
+                    
+                    //           println(userID)
+                    //           println("userID is above")
+                }
+                // Add orderID to model
+                Model.sharedInstance.setOrderID(tempOrderArray)
+                
+                dispatch_async(dispatch_get_main_queue(),{
+                    //                    self.getOrdersForUser()
+                    self.loginResult(true)
+                })
+            }
+        })
+    }
+    
+    
+    
 	
 	/*
 	// MARK: - Navigation
