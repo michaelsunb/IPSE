@@ -13,7 +13,11 @@ class MenuCellView: UITableViewCell {
     @IBOutlet weak var myLabel: UILabel!
     @IBOutlet weak var mySubtitle: UILabel!
     @IBOutlet weak var myImageView: UIImageView!
-	@IBOutlet weak var QuantityStepper: UIStepper!
-	@IBOutlet weak var Quantity: UILabel!
+	@IBOutlet weak var quantity: UILabel!
 	@IBOutlet weak var price: UILabel!
+	
+	
+	@IBAction func quatityStepper(sender: UIStepper) {
+		self.quantity.text = Int(sender.value).description
+	}
 }

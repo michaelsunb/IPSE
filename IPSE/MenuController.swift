@@ -12,14 +12,17 @@ class MenuController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let products:[ProductTest] = ProductModel.sharedInstance.getProductTest()
     var images:[String:UIImage]?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        getAllProducts()
-        println(Model.sharedInstance.getAllProducts())
-        
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    
+	@IBAction func submit(sender: UIButton) {
+//		println(titleCell)
+//		println(qtyCell)
+//		println(priceCell)
+	}
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		println(Model.sharedInstance.getAllProducts())
+	}
+	
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -30,9 +33,6 @@ class MenuController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        println(Model.sharedInstance.getCount())
-        println("model Count")
-        println(Model.sharedInstance.getCount())
         return Model.sharedInstance.getCount()
     }
     
@@ -45,88 +45,35 @@ class MenuController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         var cell:MenuCellView = tableView.dequeueReusableCellWithIdentifier("menuCell", forIndexPath: indexPath) as MenuCellView
 
-//        let product = products[indexPath.row]
-
-        cell.myLabel.text = Model.sharedInstance.getAllProductsFromArray()[indexPath.row].getName()
-//        println(Model.sharedInstance.getAllProductsFromArray()[0].getName())
-        //        cell.myLabel.text = "Hwllo"
-//        cell.mySubtitle.text = "again"
-//        cell.myLabel.text = product.name
-//        cell.mySubtitle.text = product.desc
-        
-//        let testAPI = ProductTestAPI()
-//        if let image:UIImage = testAPI.getMovie(product.product_image) {
-//            cell.myImageView.image = image
-//        }
-//        println("The loaded image: \(cell.myImageView.image)")
+		cell.myLabel.text = Model.sharedInstance.getAllProductsFromArray()[indexPath.row].getName()
+		cell.mySubtitle.text = Model.sharedInstance.getAllProductsFromArray()[indexPath.row].getDescription()
+		var cost:Int = Model.sharedInstance.getAllProductsFromArray()[indexPath.row].getCost()
+		cell.price.text = "$" + String(cost)
 
         return cell;
-    }
-    
-//    func getAllProducts() -> NSArray? {
-//        let urlPath: String = "http://foodorderingsystem.mybluemix.net/products/products.php"
-//        var url: NSURL = NSURL(string: urlPath)!
-//        var request1: NSURLRequest = NSURLRequest(URL: url)
-//        let queue:NSOperationQueue = NSOperationQueue()
-//        var loginRequest:Bool = false
-//        var productArray:NSArray?
-//        NSURLConnection.sendAsynchronousRequest(request1, queue: queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-//            var err: NSError
-//            var jsonResult: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: nil)
-//            
-//            //            println("AsSynchronous\(jsonResult)")
-//            
-//            if let jsonDictionary = jsonResult as? NSDictionary {
-//                if let productsArray = jsonDictionary["products"] as? NSArray {
-//                    dispatch_async(dispatch_get_main_queue(), {
-//                        productArray = productsArray
-//                        println(productsArray[0]["cost"])
-//                        if let cost = productsArray[0]["cost"] as? NSInteger{
-//                            //   println(cost)
-//                        }
-//                        for var i = 0 ; i < 3 ; i++ {
-//                            var productID :Int = 0
-//                            var productCost:Int = 0
-//                            var productName:String = "null"
-//                            var productDescription:String = "null"
-//                            
-//                            if var id  = productsArray[i]["id"] as? NSInteger{
-//                                productID = id
-//                            }
-//                            if var cost = productsArray[i]["cost"] as? NSInteger {
-//                                productCost = cost
-//                            }
-//                            if var name = productsArray[i]["name"] as? NSString {
-//                                productName = name
-//                            }
-//                            if var description = productsArray[i]["description"] as? NSString{
-//                                productDescription = description
-//                            }
-//                            var product:Products = Products(productID: productID, name: productName, description: productDescription,cost: productCost)
-//                            Model.sharedInstance.addProductToArray(product)
-//                            println(product.getName())
-//                        }
-//                        var prod = Model.sharedInstance.getAllProductsFromArray()
-//                        
-//                        Model.sharedInstance.iterateProducts()
-//                        
-//                        self.getResultsProducts(productsArray)
-//                    })
-//                    
-//                    
-//                    
-//                }
-//            }
-//            
-//        })
-//        // println(productArray)
-//        return productArray?
-//    }
-//    
-//    func getResultsProducts(productsArray:NSArray) {
-//        println("THIS IS THE GETRESULTSPRODUCTS")
-//        //   println(productsArray)
-//    }
-    
+	}
+	
+	var titleCell:String = String()
+	var qtyCell:Int = Int()
+	var priceCell:Int = Int()
+	/**
+	 * http://stackoverflow.com/questions/28315133/swift-pass-uitableviewcell-label-to-new-viewcontroller
+	 */
+	func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+//		println("You selected cell #\(indexPath.row)!")
+//		println(tableView.numberOfSections())
+		
+		// Get Cell Label
+		let indexPath = tableView.indexPathForSelectedRow();
+		let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as MenuCellView!;
+		
+		let title = currentCell.myLabel.text
+		let quantity = currentCell.quantity.text?.toInt()
+		let price = currentCell.price.text?.toInt()
+		
+		if let titleCell = title { }
+		if let qtyCell = quantity { }
+		if let priceCell = price { }
+	}
 }
 
