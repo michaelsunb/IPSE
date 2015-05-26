@@ -131,14 +131,16 @@
                             <constraint firstAttribute="centerX" secondItem="280-ne-4l7" secondAttribute="centerX" id="q56-rx-Qql"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Menu" image="Food" selectedImage="Food" id="GEo-oD-ws8"/>
                     <navigationItem key="navigationItem" title="Menu" id="9Ln-28-wsJ"/>
                     <connections>
                         <segue destination="Coh-cK-Ery" kind="show" identifier="createOrder" id="Ooh-w3-bXH"/>
+                        <segue destination="Coh-cK-Ery" kind="show" identifier="submitOrder" id="0Jx-VV-s8o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTM-jW-ckO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-492" y="-498"/>
+            <point key="canvasLocation" x="-1073" y="-498"/>
         </scene>
         <!--Orders-->
         <scene sceneID="CEe-Mt-3nt">
@@ -479,7 +481,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="KTa-72-xnl" kind="relationship" relationship="viewControllers" id="AxA-oQ-83X"/>
-                        <segue destination="6xZ-nc-H19" kind="relationship" relationship="viewControllers" id="zua-Hx-Lnd"/>
+                        <segue destination="K6Z-Xw-ep0" kind="relationship" relationship="viewControllers" id="o9e-JN-QfZ"/>
                         <segue destination="W7D-Uv-Hki" kind="relationship" relationship="viewControllers" id="ORR-Qq-sUs"/>
                     </connections>
                 </tabBarController>
@@ -490,6 +492,7 @@
         <!--Orders-->
         <scene sceneID="Jig-n9-hSH">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lb5-1c-uuF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KTa-72-xnl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Orders" id="dfK-Iv-tpU"/>
                     <toolbarItems/>
@@ -502,9 +505,8 @@
                         <segue destination="Coh-cK-Ery" kind="relationship" relationship="rootViewController" id="VqB-rz-VKn"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lb5-1c-uuF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2985" y="245"/>
+            <point key="canvasLocation" x="-2977" y="243"/>
         </scene>
         <!--Profile-->
         <scene sceneID="RAX-sF-eyJ">
@@ -525,33 +527,14 @@
             </objects>
             <point key="canvasLocation" x="-2070" y="937"/>
         </scene>
-        <!--Menu-->
-        <scene sceneID="Mr3-bE-P9v">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6xZ-nc-H19" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Menu" image="Food" selectedImage="Food" id="e1Q-Ir-0v9"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qd2-V3-7bg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="K6Z-Xw-ep0" kind="relationship" relationship="rootViewController" id="Wf4-xL-qSo"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YLF-2v-Wd6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1258" y="-498"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Food" width="25" height="25"/>
         <image name="ProfileTab" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ooh-w3-bXH"/>
-        <segue reference="dFg-RN-2Iv"/>
+        <segue reference="0Jx-VV-s8o"/>
+        <segue reference="o9e-JN-QfZ"/>
         <segue reference="Zmb-9n-Z0F"/>
     </inferredMetricsTieBreakers>
 </document>

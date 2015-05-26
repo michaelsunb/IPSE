@@ -53,7 +53,7 @@ class OrderModel {
         }
     }
     
-    func saveModel(qty:Int,start_date:String,end_date:String,toProduct:Product) {
+    func saveModel(qty:Int,start_date:String,end_date:String?) {
         // Get a reference to your App Delegate
         let appDelegate =
         UIApplication.sharedApplication().delegate as AppDelegate
@@ -76,7 +76,7 @@ class OrderModel {
             println("Could not save \(error), \(error?.userInfo)")
         }
         
-        self.orders.append(Order(identifier:String(self.orders.count),qty:qty,start_date:start_date,end_date:end_date,toProduct:toProduct))
+        self.orders.append(Order(identifier:String(self.orders.count),qty:qty,start_date:start_date,end_date:end_date?))
     }
     
     /**

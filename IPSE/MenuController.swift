@@ -17,9 +17,27 @@ class MenuController: UIViewController, UITableViewDelegate, UITableViewDataSour
             println("title: \( menuCell.title)")
             println("qty: \(menuCell.qty)")
             println("price: \(menuCell.price)")
-//            orderModel.saveModel(qty: menuCell.qty, start_date: String, end_date: <#String#>, toProduct: <#Product#>)
+
+			var dateForatter = NSDateFormatter()
+			dateForatter.dateFormat = "dd-MM-yyyy"
+			var dateString = dateForatter.stringFromDate(NSDate())
+			orderModel.saveModel(menuCell.qty, start_date: dateString, end_date: String())
+			
+			self.submitOrder(true)
         }
 	}
+	
+	private func submitOrder(result:Bool) {
+		self.performSegueWithIdentifier("submitOrder", sender: nil)
+	}
+	override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+		if(identifier == "submitOrder"){
+			
+			return true
+		}
+		return false
+	}
+	
 
     var orderModel = OrderModel.sharedInstance
     
@@ -64,8 +82,7 @@ class MenuController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	var priceCell:Int = Int()
 
 	func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-		println("You deselected cell #\(indexPath.row)!")
-		
+
         if(contains(indexPath.row)) {
             var i = 0
             for menuCell in menuCells {
@@ -122,14 +139,14 @@ class MenuController: UIViewController, UITableViewDelegate, UITableViewDataSour
 		} else {
 			return
         }
-        
-        if let priceCell = price {
-            pri = qtyCell
-        } else {
-            return
-        }
+//        
+//        if let priceCell = price {
+//            pri = qtyCell
+//        } else {
+//            return
+//        }
 
-        menuCells.append(MenuCell(id:index,title:tit,qty:qty,price:pri))
+        menuCells.append(MenuCell(id:index,title:tit,qty:qty,price:0))
         println(menuCells.count)
 	}
 }

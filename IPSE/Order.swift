@@ -14,14 +14,14 @@ struct Order {
     var qty: Int
     var start_date: String
 	var end_date: String
-	var toProduct: Product
+//	var toProduct: Product
 //	var toProfile: Profile
     
-    init(identifier:String,qty:Int,start_date:String,end_date:String,toProduct:Product) {
+    init(identifier:String,qty:Int,start_date:String,end_date:String?) {
         self.identifier = identifier
         self.qty = qty
         self.start_date = start_date
-        self.end_date = end_date
-        self.toProduct = toProduct
+        self.end_date = end_date!
+//        self.toProduct = toProduct!
     }
 }
