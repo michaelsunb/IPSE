@@ -27,10 +27,19 @@ class ProfileModel {
 	}
 	
 	var profiles:[Profile] = [Profile]()
+	var appLoad: Bool = false
+	var tableView:UITableView!
 	
-	func getFirstModel() -> Profile?
-	{
-		if (profiles.count > 0)        {
+	func setTableView(tableView: UITableView) {
+		self.tableView = tableView
+	}
+	
+	func getTableView() -> UITableView {
+		return tableView
+	}
+	
+	func getFirstModel() -> Profile? {
+		if (profiles.count > 0) {
 			return profiles[0]
 		}
 		return nil

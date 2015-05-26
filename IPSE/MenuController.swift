@@ -56,12 +56,14 @@ class MenuController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	var titleCell:String = String()
 	var qtyCell:Int = Int()
 	var priceCell:Int = Int()
+
 	/**
 	 * http://stackoverflow.com/questions/28315133/swift-pass-uitableviewcell-label-to-new-viewcontroller
 	 */
 	func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
 //		println("You selected cell #\(indexPath.row)!")
 //		println(tableView.numberOfSections())
+
 		
 		// Get Cell Label
 		let indexPath = tableView.indexPathForSelectedRow();
