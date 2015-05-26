@@ -10,11 +10,13 @@ import UIKit
 
 class OrdersController: UITableViewController {
 
-    var objects = NSMutableArray()
+	var objects = NSMutableArray()
+	var model = ProfileModel.sharedInstance
 
 
     override func awakeFromNib() {
-        super.awakeFromNib()
+		super.awakeFromNib()
+		model.setTableView(self.tableView)
     }
 
     override func viewDidLoad() {

@@ -15,15 +15,15 @@ class ProfileController: UIViewController, UIAlertViewDelegate, UIPopoverControl
 	@IBOutlet var saveImage: UIButton!
 	@IBOutlet var txtMovieTitle: UITextField!
 	@IBOutlet var txtMovieSubTitle: UITextField!
+	var existingItem: Profile!
 	var titleOfMovie:String?
 	var movieSubTitle:String?
-	//    var existingItem: Movie!
 	var movieId:String?
 	
 	// Sets up a networking session
 	let session = NSURLSession.sharedSession()
 	var tableView:UITableView!
-	//    var model = Model.sharedInstance
+	var model = ProfileModel.sharedInstance
 	
 	// Constants for building various url requests to the service
 	let BASE_URL:String = "https://api.themoviedb.org/3/"
@@ -44,8 +44,7 @@ class ProfileController: UIViewController, UIAlertViewDelegate, UIPopoverControl
 		var alert:UIAlertController=UIAlertController(title:"Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
 		
 		var cameraAction = UIAlertAction(title:"Camera", style: UIAlertActionStyle.Default) {
-			UIAlertAction in
-			self.openCamera()
+			UIAlertAction in self.openCamera()
 		}
 		
 		var gallaryAction = UIAlertAction(title:"Gallary", style: UIAlertActionStyle.Default) {
@@ -104,25 +103,24 @@ class ProfileController: UIViewController, UIAlertViewDelegate, UIPopoverControl
 	}
 
 	override func viewDidLoad() {
-//		super.viewDidLoad()
-//		picker?.delegate = self
-//		tableView = model.getTableView()
-//		if(!model.appLoad) {
-//			// loads the first movie into the detail view when split screen is being used
-//			if let navController = splitViewController?.viewControllers[0] as? UINavigationController {
-//				model.appLoad = true
-//				txtMovieTitle.text = model.getFirstMovie()?.title
-//				txtMovieSubTitle.text = model.getFirstMovie()?.subtitle
-//				
-//				navController.popViewControllerAnimated(true)
-//			}
-//		}
-//
-//		if (existingItem != nil) {
-//			txtMovieSubTitle.text = movieSubTitle
-//			txtMovieTitle.text = titleOfMovie
-//		}
-//		getMovie()
+		super.viewDidLoad()
+		picker?.delegate = self
+		tableView = model.getTableView()
+		if(!model.appLoad) {
+			// loads the first movie into the detail view when split screen is being used
+			if let navController = splitViewController?.viewControllers[0] as? UINavigationController {
+				model.appLoad = true
+				txtMovieTitle.text = model.getFirstModel()?.first_name
+				txtMovieSubTitle.text = model.getFirstModel()?.last_name
+				
+				navController.popViewControllerAnimated(true)
+			}
+		}
+
+		if (existingItem != nil) {
+			txtMovieSubTitle.text = movieSubTitle
+			txtMovieTitle.text = titleOfMovie
+		}
 	}
 	
 	@IBAction func save(sender: AnyObject) {
