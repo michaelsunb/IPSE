@@ -12,10 +12,13 @@ class MenuController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let products:[ProductTest] = ProductModel.sharedInstance.getProductTest()
     var images:[String:UIImage]?
 
-	@IBAction func submit(sender: UIButton) {
-//		println(titleCell)
-//		println(qtyCell)
-//		println(priceCell)
+    @IBAction func submit(sender: UIButton) {
+        for menuCell in menuCells {
+            println("id: \(menuCell.id)")
+            println("title: \( menuCell.title)")
+            println("qty: \(menuCell.qty)")
+//            println("price: \(menuCell.price)")
+        }
 	}
 	
 	override func viewDidLoad() {
@@ -57,25 +60,85 @@ class MenuController: UIViewController, UITableViewDelegate, UITableViewDataSour
 	var qtyCell:Int = Int()
 	var priceCell:Int = Int()
 
+	func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+		println("You deselected cell #\(indexPath.row)!")
+		
+        if(contains(indexPath.row)) {
+            var i = 0
+            for menuCell in menuCells {
+                if(menuCell.id == indexPath.row) {
+                    menuCells.removeAtIndex(i)
+                }
+                i++
+            }
+        }
+        println(menuCells.count)
+	}
+	
+	private var menuCells:[MenuCell] = [MenuCell]()
+	
+	func contains(index:Int) -> Bool {
+		for menuCell in menuCells {
+			if(menuCell.id == index) {
+				return true
+			}
+		}
+		return false
+	}
+	
 	/**
 	 * http://stackoverflow.com/questions/28315133/swift-pass-uitableviewcell-label-to-new-viewcontroller
 	 */
 	func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-//		println("You selected cell #\(indexPath.row)!")
+		println("You selected cell #\(indexPath.row)!")
 //		println(tableView.numberOfSections())
 
-		
 		// Get Cell Label
-		let indexPath = tableView.indexPathForSelectedRow();
+		// let indexPath = tableView.indexPathForSelectedRow();
 		let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as MenuCellView!;
 		
 		let title = currentCell.myLabel.text
 		let quantity = currentCell.quantity.text?.toInt()
 		let price = currentCell.price.text?.toInt()
 		
-		if let titleCell = title { }
-		if let qtyCell = quantity { }
-		if let priceCell = price { }
+        var index:Int
+        if let indexP = indexPath {
+            index = indexP.row
+        } else {
+            return
+        }
+        println(index)
+        
+		var tit:String
+		var qty:Int
+		var pri:Int
+		if let titleCell = title {
+			tit = titleCell
+		} else {
+			return
+        }
+        println(tit)
+		if let qtyCell = quantity {
+			qty = qtyCell
+		} else {
+			return
+        }
+        println(qty)
+		menuCells.append(MenuCell(id:index,title:tit,qty:qty))
+        println(menuCells.count)
 	}
 }
 
+struct MenuCell {
+	var id:Int
+	var title:String
+	var qty:Int
+//	var price:Int
+	
+	init(id:Int,title:String,qty:Int) {
+		self.id = id
+		self.title = title
+		self.qty = qty
+//		self.price = price
+	}
+}

@@ -44,8 +44,7 @@ class ProfileController: UIViewController, UIAlertViewDelegate, UIPopoverControl
 		var alert:UIAlertController=UIAlertController(title:"Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
 		
 		var cameraAction = UIAlertAction(title:"Camera", style: UIAlertActionStyle.Default) {
-			UIAlertAction in
-			self.openCamera()
+			UIAlertAction in self.openCamera()
 		}
 		
 		var gallaryAction = UIAlertAction(title:"Gallary", style: UIAlertActionStyle.Default) {
