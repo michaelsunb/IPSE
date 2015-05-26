@@ -11,6 +11,6 @@ import CoreData
 
 class Favourite: NSManagedObject {
     @NSManaged var identifier: String
-    @NSManaged var toProfile: Profile
-    @NSManaged var toProduct: Product
+//    @NSManaged var toProfile: Profile
+//    @NSManaged var toProduct: Product
 }

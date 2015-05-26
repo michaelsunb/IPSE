@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14B25" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Favourites" representedClassName="IPSE.Favourite" syncable="YES">
+    <entity name="Favourites" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="toProduct" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Products" inverseName="toFavourite" inverseEntity="Products" syncable="YES"/>
         <relationship name="toProfile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Profiles" inverseName="toFavourite" inverseEntity="Profiles" syncable="YES"/>
     </entity>
-    <entity name="Logins" representedClassName="IPSE.Login" syncable="YES">
+    <entity name="Logins" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="toProfile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Profiles" inverseName="toLogin" inverseEntity="Profiles" syncable="YES"/>
     </entity>
-    <entity name="Orders" representedClassName="IPSE.Oder" syncable="YES">
+    <entity name="Orders" syncable="YES">
         <attribute name="end_date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="qty" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -19,7 +19,7 @@
         <relationship name="toProduct" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Products" inverseName="toOrders" inverseEntity="Products" syncable="YES"/>
         <relationship name="toProfile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Profiles" inverseName="toOrder" inverseEntity="Profiles" syncable="YES"/>
     </entity>
-    <entity name="Products" representedClassName="IPSE.Product" syncable="YES">
+    <entity name="Products" syncable="YES">
         <attribute name="cost" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
@@ -28,7 +28,7 @@
         <relationship name="toFavourite" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Favourites" inverseName="toProduct" inverseEntity="Favourites" syncable="YES"/>
         <relationship name="toOrders" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Orders" inverseName="toProduct" inverseEntity="Orders" syncable="YES"/>
     </entity>
-    <entity name="Profiles" representedClassName="IPSE.Profile" syncable="YES">
+    <entity name="Profiles" syncable="YES">
         <attribute name="first_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="last_name" optional="YES" attributeType="String" syncable="YES"/>

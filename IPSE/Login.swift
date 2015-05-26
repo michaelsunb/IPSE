@@ -12,10 +12,16 @@ import CoreData
 /**
  * https://www.youtube.com/watch?v=K6PfveuxUEk
  */
-class Login : NSManagedObject {
-    @NSManaged var identifier: String
-    @NSManaged var username: String
-    @NSManaged var password: String
-	@NSManaged var profile_id: String
-	@NSManaged var toProfile: Profile
+struct Login {
+    var identifier: String
+    var username: String
+    var password: String
+	var toProfile: Profile
+    
+    init(identifier:String,username:String,password:String,toProfile:Profile) {
+        self.identifier = identifier
+        self.username = username
+        self.password = password
+        self.toProfile = toProfile
+    }
 }

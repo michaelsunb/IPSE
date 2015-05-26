@@ -36,8 +36,8 @@ class RegisterController: UIViewController, UITextFieldDelegate {
 			return
 		}
 		
-		profileModel.saveModel(nameText.text, last_name: lastText.text, existing: profileModel.getFirstModel())
-		loginModel.saveModel(usernameText.text, password:passwordText.text,existing:loginModel.getFirstModel())
+		profileModel.saveModel(nameText.text, last_name: lastText.text)
+		loginModel.saveModel(usernameText.text, password:passwordText.text,toProfile:profileModel.getLastModel()!)
 		registerResult(true)
 	}
 	
@@ -46,9 +46,9 @@ class RegisterController: UIViewController, UITextFieldDelegate {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
-//		profileModel.getModel()		// TODO
-//		loginModel.getModel()		// TODO
+//      Do any additional setup after loading the view, typically from a nib.
+		profileModel.getModel()		// TODO
+		loginModel.getModel()		// TODO
 
 		self.nameText.delegate = self;
 		self.lastText.delegate = self;

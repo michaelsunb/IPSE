@@ -16,5 +16,5 @@ class Product: NSManagedObject {
     @NSManaged var identifier: String
     @NSManaged var name: String
     @NSManaged var product_image: NSData
-    @NSManaged var toFavourite: Favourite
+//    @NSManaged var toFavourite: Favourite
 }

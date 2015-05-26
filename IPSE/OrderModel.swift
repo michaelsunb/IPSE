@@ -13,19 +13,6 @@ class OrderModel {
     
     var orders:[Order] = [Order]()
     
-    init() {
-        loadTable()
-    }
-    
-    func getTable() -> [Order] {
-        if(orders.count > 0) {
-            return orders
-        }
-        loadTable()
-        
-        return orders
-    }
-    
     func getFirstProduct() -> Order?
     {
         if (orders.count > 0)        {
@@ -34,7 +21,7 @@ class OrderModel {
         return nil
     }
     
-    private func loadTable() {
+    func getModel() {
         // Get a reference to your App Delegate
         let appDelegate =
         UIApplication.sharedApplication().delegate as AppDelegate
@@ -43,25 +30,27 @@ class OrderModel {
         // the underlying database
         let managedContext = appDelegate.managedObjectContext!
         
+        
+        // Retrieve all the records in the table
         let fetchRequest = NSFetchRequest(entityName:"Orders")
+        fetchRequest.returnsObjectsAsFaults = false
         
         var error: NSError?
-        
-        let fetchedResults : [Order] =
+        let fetchedResults:NSArray =
         managedContext.executeFetchRequest(fetchRequest,
-            error: &error) as [Order]
+            error: &error)!
         
         // Assign the results to the Model
         if fetchedResults.count > 0 {
-            orders = fetchedResults
+            for res in fetchedResults {
+                println(res)
+            }
         } else {
-     //       println("Could not fetch \(error), \(error!.userInfo)")
+            //println("Could not fetch \(error), \(error!.userInfo)")
         }
     }
     
-    func saveProduct(id: Int, item_id: Int, profile_id:Int,
-        qty:Int, start_date:String, end_date:String, existing: Order?)
-    {
+    func saveModel(qty:Int,start_date:String,end_date:String) {
         // Get a reference to your App Delegate
         let appDelegate =
         UIApplication.sharedApplication().delegate as AppDelegate
@@ -72,35 +61,19 @@ class OrderModel {
         
         // Get a entity from the database that represents the table your are
         // wishing to work with
-        let entity =  NSEntityDescription.entityForName("Orders",
-            inManagedObjectContext:
-            managedContext)
+        let entity: NSManagedObject =  NSEntityDescription.insertNewObjectForEntityForName("Orders", inManagedObjectContext: managedContext) as NSManagedObject
         
-        if((existing) == nil) {
-            // Create an object based on the Entity
-            let order = Order(entity: entity!,
-                insertIntoManagedObjectContext:managedContext)
-            order.identifier = id
-            order.qty = qty
-            order.start_date = start_date
-			order.end_date = end_date
-//          order.item_id = item_id
-//          order.profile_id = profile_id
-            self.orders.append(order)
-        } else {
-            existing!.identifier = id
-            existing!.qty = qty
-            existing!.start_date = start_date
-			existing!.end_date = end_date
-//          existing!.item_id = item_id
-//          existing!.profile_id = profile_id
-        }
+        entity.setValue(String(self.orders.count), forKey:"identifier")
+        entity.setValue(qty, forKey:"qty")
+        entity.setValue(start_date, forKey:"start_date")
+        entity.setValue(end_date, forKey:"end_date")
         
-        // Check for errors and save
         var error: NSError?
         if !managedContext.save(&error) {
-     //       println("Could not save \(error), \(error?.userInfo)")
+            println("Could not save \(error), \(error?.userInfo)")
         }
+        
+        self.orders.append(Order(identifier:String(self.orders.count),qty:qty,start_date:start_date,end_date:end_date))
     }
     
     /**

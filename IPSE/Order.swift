@@ -9,11 +9,18 @@
 import Foundation
 import CoreData
 
-class Order : NSManagedObject {
-    @NSManaged var identifier: Int
-    @NSManaged var qty: Int
-    @NSManaged var start_date: String
-	@NSManaged var end_date: String
-	@NSManaged var toProduct: Product
-	@NSManaged var toProfile: Profile
+struct Order {
+    var identifier: String
+    var qty: Int
+    var start_date: String
+	var end_date: String
+//	var toProduct: Product
+//	var toProfile: Profile
+    
+    init(identifier:String,qty:Int,start_date:String,end_date:String) {
+        self.identifier = identifier
+        self.qty = qty
+        self.start_date = start_date
+        self.end_date = end_date
+    }
 }

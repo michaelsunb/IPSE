@@ -271,6 +271,9 @@
                                 <state key="normal" title="Sign Up">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="signUp:" destination="xn6-Cn-Mf8" eventType="touchUpInside" id="9au-wY-Zrq"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dV9-ao-DjP">
                                 <rect key="frame" x="214" y="223" width="173" height="30"/>
@@ -519,8 +522,8 @@
         <image name="ProfileTab" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="blN-rl-sBv"/>
-        <segue reference="Ooh-w3-bXH"/>
         <segue reference="dFg-RN-2Iv"/>
+        <segue reference="VqB-rz-VKn"/>
+        <segue reference="blN-rl-sBv"/>
     </inferredMetricsTieBreakers>
 </document>

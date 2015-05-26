@@ -10,6 +10,10 @@ import CoreData
 import Foundation
 import UIKit
 
+/**
+ * Core Data help
+ * https://www.youtube.com/watch?v=3IDfgATVqHw
+ */
 class ProfileModel {
 	/**
 	* Reference to thread safe singleton at bottom on page
@@ -43,7 +47,14 @@ class ProfileModel {
 			return profiles[0]
 		}
 		return nil
-	}
+    }
+    
+    func getLastModel() -> Profile? {
+        if (profiles.count > 0) {
+            return profiles.last
+        }
+        return nil
+    }
 	
 	func getModel() {
 		// Get a reference to your App Delegate
@@ -57,20 +68,24 @@ class ProfileModel {
 		
 		// Retrieve all the records in the table
 		let fetchRequest = NSFetchRequest(entityName:"Profiles")
+        fetchRequest.returnsObjectsAsFaults = false
+        
 		var error: NSError?
-		let fetchedResults =
+        let fetchedResults:NSArray =
 		managedContext.executeFetchRequest(fetchRequest,
-			error: &error) as [Profile]?
+			error: &error)!
 		
 		// Assign the results to the Model
-		if let results = fetchedResults {
-			profiles = results
+		if fetchedResults.count > 0 {
+            for res in fetchedResults {
+                println(res)
+            }
 		} else {
-			println("Could not fetch \(error), \(error!.userInfo)")
+			//println("Could not fetch \(error), \(error!.userInfo)")
 		}
 	}
 	
-	func saveModel(first_name: String,last_name:String, existing: Profile?) {
+	func saveModel(first_name: String,last_name:String) {
 		// Get a reference to your App Delegate
 		let appDelegate =
 		UIApplication.sharedApplication().delegate as AppDelegate
@@ -81,33 +96,19 @@ class ProfileModel {
 		
 		// Get a entity from the database that represents the table your are
 		// wishing to work with
-		let entity =  NSEntityDescription.entityForName("Profiles",
-			inManagedObjectContext:
-			managedContext)
+        let entity: NSManagedObject =  NSEntityDescription.insertNewObjectForEntityForName("Profiles", inManagedObjectContext: managedContext) as NSManagedObject
 		
-		if((existing) == nil) {
-			// Create an object based on the Entity
-			let profile = Profile(entity: entity!,
-				insertIntoManagedObjectContext:managedContext)
-			profile.setValue(self.profiles.count, forKey:"identifer")
-			profile.setValue(first_name, forKey:"first_name")
-			profile.setValue(last_name, forKey:"last_name")
-			
-			var error: NSError?
-			if !managedContext.save(&error) {
-				println("Could not save \(error), \(error?.userInfo)")
-			}
-			
-			self.profiles.append(profile)
-		} else {
-			existing!.first_name = first_name
-			existing!.last_name = last_name
-		}
+		entity.setValue(String(self.profiles.count), forKey:"identifier")
+		entity.setValue(first_name, forKey:"first_name")
+        entity.setValue(last_name, forKey:"last_name")
+        
+        var error: NSError?
+        if !managedContext.save(&error) {
+            println("Could not save \(error), \(error?.userInfo)")
+        }
 		
-		// Check for errors and save
-		var error: NSError?
-		if !managedContext.save(&error) {
-			println("Could not save \(error), \(error?.userInfo)")
-		}
+        self.profiles.append(Profile(identifier: String(self.profiles.count),first_name:first_name,last_name:last_name))
+		
+		
 	}
 }

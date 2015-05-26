@@ -33,7 +33,7 @@ class LoginModel {
 			return logins[0]
 		}
 		return nil
-	}
+    }
 	
 	func checkUserPass(username:String,password:String)->Bool {
 		for login in logins {
@@ -57,20 +57,22 @@ class LoginModel {
 		
 		// Retrieve all the records in the table
 		let fetchRequest = NSFetchRequest(entityName:"Logins")
-		var error: NSError?
-		let fetchedResults =
-		managedContext.executeFetchRequest(fetchRequest,
-			error: &error) as [Login]?
+        var error: NSError?
+        let fetchedResults:NSArray =
+        managedContext.executeFetchRequest(fetchRequest,
+            error: &error)!
 		
-		// Assign the results to the Model
-		if let results = fetchedResults {
-			logins = results
-		} else {
-			println("Could not fetch \(error), \(error!.userInfo)")
-		}
+        // Assign the results to the Model
+        if fetchedResults.count > 0 {
+            for res in fetchedResults {
+                println(res)
+            }
+        } else {
+            //println("Could not fetch \(error), \(error!.userInfo)")
+        }
 	}
 	
-	func saveModel(username:String,password:String,existing: Login?) {
+	func saveModel(username:String,password:String,toProfile:Profile) {
 		// Get a reference to your App Delegate
 		let appDelegate =
 		UIApplication.sharedApplication().delegate as AppDelegate
@@ -80,36 +82,14 @@ class LoginModel {
 		let managedContext = appDelegate.managedObjectContext!
 		
 		// Get a entity from the database that represents the table your are
-		// wishing to work with
-		let entity =  NSEntityDescription.entityForName("Logins",
-			inManagedObjectContext:
-			managedContext)
-		
-		if((existing) == nil) {
-			// Create an object based on the Entity
-			let login = Login(entity: entity!,
-				insertIntoManagedObjectContext:managedContext)
-			//login.setValue(self.logins.count, forKey:"identifer")
-			login.setValue(username, forKey:"username")
-			login.setValue(password, forKey:"password")
-//			login.setValue(loginProfile, forKey:"loginProfile")
-			
-			var error: NSError?
-			if !managedContext.save(&error) {
-				println("Could not save \(error), \(error?.userInfo)")
-			}
-			self.logins.append(login)
-		} else {
-			//existing!.id = self.logins.count
-			existing!.username = username
-			existing!.password = password
-//			existing!.loginProfile = loginProfile
-		}
-		
-		// Check for errors and save
-		var error: NSError?
-		if !managedContext.save(&error) {
-			println("Could not save \(error), \(error?.userInfo)")
-		}
+        // wishing to work with
+        let entity: NSManagedObject =  NSEntityDescription.insertNewObjectForEntityForName("Logins", inManagedObjectContext: managedContext) as NSManagedObject
+        
+        var error: NSError?
+        if !managedContext.save(&error) {
+            println("Could not save \(error), \(error?.userInfo)")
+        }
+        
+        self.logins.append(Login(identifier:String(self.logins.count),username:username,password:password,toProfile:toProfile))
 	}
 }

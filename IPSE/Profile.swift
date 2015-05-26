@@ -1,18 +1,30 @@
 //
-//  iProfile.swift
+//  ProfileStruct.swift
 //  IPSE
 //
-//  Created by Michaelsun Baluyos on 12/05/2015.
+//  Created by Michaelsun Baluyos on 26/05/2015.
 //  Copyright (c) 2015 rmit. All rights reserved.
 //
 
 import Foundation
-import CoreData
 
-class Profile : NSManagedObject {
-    @NSManaged var identifier: String
-    @NSManaged var first_name: String
-    @NSManaged var last_name: String
-    @NSManaged var picture: NSData
-	@NSManaged var toLogin: Login
+struct Profile {
+    var identifier: String
+    var first_name: String
+    var last_name: String
+    var picture: NSData
+//    var toLogin: Login = Login()
+
+    init(identifier:String,first_name:String,last_name:String,picture:NSData?) {
+        self.identifier = identifier
+        self.first_name = first_name
+        self.last_name = last_name
+        self.picture = picture!
+    }
+    init(identifier:String,first_name:String,last_name:String) {
+        self.identifier = identifier
+        self.first_name = first_name
+        self.last_name = last_name
+        self.picture = NSData()
+    }
 }
