@@ -68,7 +68,7 @@ class LoginModel {
                 println(res)
             }
         } else {
-            //println("Could not fetch \(error), \(error!.userInfo)")
+            println("Could not fetch \(error), \(error!.userInfo)")
         }
 	}
 	

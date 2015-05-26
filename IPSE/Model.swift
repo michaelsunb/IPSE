@@ -12,7 +12,8 @@ import Foundation
 class Model {
     private let masterDataAccessObject:MasterDAO
     private var productsArray = [Products]()
-    
+    private var loggedInUserID = 0
+    private var orderIDArray = [Int]()
     private struct Static
     {
         static private var instance:Model?
@@ -59,8 +60,23 @@ class Model {
         }
     }
     
+    func setLoggedInUser(id :Int) {
+        loggedInUserID = id
+    }
+    func getLoggedInUser()->Int {
+        return loggedInUserID
+    }
+    
     func getCount() -> Int {
         return productsArray.count
+    }
+    
+    func setOrderID(orderID:[Int]) {
+        orderIDArray = orderID
+    }
+    
+    func getOrderID() -> [Int] {
+        return orderIDArray
     }
 //    
 //    func getProductResult() {

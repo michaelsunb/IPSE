@@ -9,12 +9,26 @@
 import Foundation
 import CoreData
 
-class Product: NSManagedObject {
-
-    @NSManaged var cost: NSNumber
-    @NSManaged var desc: String
-    @NSManaged var identifier: String
-    @NSManaged var name: String
-    @NSManaged var product_image: NSData
+struct Product {
+    var identifier: String
+    var cost: Int
+    var desc: String
+    var name: String
+    var product_image: NSData
 //    @NSManaged var toFavourite: Favourite
+    
+    init(identifier:String,name:String,cost:Int,desc:String,picture:NSData?) {
+        self.identifier = identifier
+        self.name = name
+        self.cost = cost
+        self.desc = desc
+        self.product_image = picture!
+    }
+    init(identifier:String,name:String,cost:Int,desc:String) {
+        self.identifier = identifier
+        self.name = name
+        self.cost = cost
+        self.desc = desc
+        self.product_image = NSData()
+    }
 }

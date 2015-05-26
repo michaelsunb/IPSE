@@ -9,7 +9,6 @@
 import UIKit
 
 class MenuController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    let products:[ProductTest] = ProductModel.sharedInstance.getProductTest()
     var images:[String:UIImage]?
 
     @IBAction func submit(sender: UIButton) {
@@ -126,19 +125,5 @@ class MenuController: UIViewController, UITableViewDelegate, UITableViewDataSour
         println(qty)
 		menuCells.append(MenuCell(id:index,title:tit,qty:qty))
         println(menuCells.count)
-	}
-}
-
-struct MenuCell {
-	var id:Int
-	var title:String
-	var qty:Int
-//	var price:Int
-	
-	init(id:Int,title:String,qty:Int) {
-		self.id = id
-		self.title = title
-		self.qty = qty
-//		self.price = price
 	}
 }
