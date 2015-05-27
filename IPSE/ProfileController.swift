@@ -12,23 +12,20 @@ class ProfileController: UIViewController, UIAlertViewDelegate, UIPopoverControl
 {
 	@IBOutlet var image: UIImageView!
 	
-    @IBOutlet weak var surname: UILabel!
-    @IBOutlet weak var name: UILabel!
+	@IBOutlet weak var surname: UILabel!
+	@IBOutlet weak var name: UILabel!
 	@IBOutlet var saveImage: UIButton!
 	var existingItem: Profile!
-	var titleOfMovie:String?
-	var movieSubTitle:String?
-	var movieId:String?
 	
 	// Sets up a networking session
 	let session = NSURLSession.sharedSession()
 	var tableView:UITableView!
 	var model = ProfileModel.sharedInstance
-
+	
 	var picker:UIImagePickerController?=UIImagePickerController()
 	var popover:UIPopoverController?=nil
-
-
+	
+	
 	@IBAction func changeImage(sender: AnyObject) {
 		var alert:UIAlertController=UIAlertController(title:"Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
 		
@@ -90,10 +87,10 @@ class ProfileController: UIViewController, UIAlertViewDelegate, UIPopoverControl
 	func imagePickerControllerDidCancel(picker: UIImagePickerController!) {
 		picker.dismissViewControllerAnimated(true, completion: nil)
 	}
-
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
+		
 		picker?.delegate = self
 		tableView = model.getTableView()
 		if(!model.appLoad) {
@@ -102,22 +99,11 @@ class ProfileController: UIViewController, UIAlertViewDelegate, UIPopoverControl
 				navController.popViewControllerAnimated(true)
 			}
 		}
-
-        name.text = Model.sharedInstance.getFirstName()
-        surname.text = Model.sharedInstance.getLastName()
+		
+		name.text = Model.sharedInstance.getFirstName()
+		surname.text = Model.sharedInstance.getLastName()
 	}
 	
-	@IBAction func save(sender: AnyObject) {
-//		Model.sharedInstance.saveMovie(txtMovieTitle.text!, subtitle: txtMovieSubTitle.text!, existing: existingItem)
-//		
-//		// Updates the master view from the detail view and pops the view if not being shown in split view
-//		if let navController = splitViewController?.viewControllers[0] as? UINavigationController
-//		{
-//			tableView.reloadData()
-//			navController.popViewControllerAnimated(true)
-//		}
-	}
-
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.

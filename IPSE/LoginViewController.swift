@@ -44,7 +44,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		
 		self.username.delegate = self
 		self.password.delegate = self
-	
+		
 		for login in loginModel.logins {
 			println("username: " + login.username + "\t password: " + login.password)
 		}
@@ -59,6 +59,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	
 	
 	func loginRequest(){
+		// Check core data first
 		if(LoginModel.sharedInstance.checkUserPass(self.username.text, password: self.password.text)) {
 			self.getOrdersForUser()
 			return
@@ -74,8 +75,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 			if let jsonDictionary = jsonResult as? NSDictionary {
 				if let userID = jsonDictionary["id"] as? NSInteger {
 					Model.sharedInstance.setLoggedInUser(userID)
-					//           println(userID)
-					//           println("userID is above")
 				}
 				if let success = jsonDictionary["Success"] as? NSString {
 					
@@ -83,7 +82,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 						// User has permission to login.
 						dispatch_async(dispatch_get_main_queue(),{
 							self.getOrdersForUser()
-//							self.loginResult(true)
 						})
 					}else{
 						// User does not have permission to login.
@@ -98,12 +96,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 			}
 			
 		})
-		
-		// println("calling DAO login")
 	}
+	
 	// foodorderingsystem.mybluemix.net/orders/getorderid.php?accountid=4
 	func loginResult(result:Bool) {
-		//println(result)
 		self.performSegueWithIdentifier("login", sender: nil)
 	}
 	
@@ -125,12 +121,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 							println(orderIDobj)
 							if var orderIDic = orderIDobj["orderID"] as? NSInteger{
 								tempOrderArray.append(orderIDic)
-								println(orderIDic)
-								println("below)")
-								
-								
 							}
-							println("above this ==============++++++")
 						}
 						
 					}
@@ -145,7 +136,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 			}
 		})
 	}
-
+	
 	func getUserInfo(){
 		let urlPath: String = "http://foodorderingsystem.mybluemix.net/products/user.php?accountid=\(Model.sharedInstance.getLoggedInUser())"
 		var url: NSURL = NSURL(string: urlPath)!
@@ -163,8 +154,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 						if let firstname = credentials["firstname"] as? String {
 							Model.sharedInstance.setFirstName(firstname)
 							if let lastname = credentials["lastname"] as? String {
-								//                                self.profileModel.saveModel(firstname, last_name: lastname)
-								
 								Model.sharedInstance.setLastName(lastname)
 							}
 						}
@@ -172,9 +161,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 				}
 				// Add orderID to model
 				Model.sharedInstance.setOrderID(tempOrderArray)
-				
 				dispatch_async(dispatch_get_main_queue(),{
-					//                    self.getOrdersForUser()
 					self.loginResult(true)
 				})
 			}

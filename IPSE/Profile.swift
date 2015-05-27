@@ -9,22 +9,21 @@
 import Foundation
 
 struct Profile {
-    var identifier: String
-    var first_name: String
-    var last_name: String
-    var picture: NSData
-//    var toLogin: Login = Login()
-
-    init(identifier:String,first_name:String,last_name:String,picture:NSData?) {
-        self.identifier = identifier
-        self.first_name = first_name
-        self.last_name = last_name
-        self.picture = picture!
-    }
-    init(identifier:String,first_name:String,last_name:String) {
-        self.identifier = identifier
-        self.first_name = first_name
-        self.last_name = last_name
-        self.picture = NSData()
-    }
+	var identifier: String
+	var first_name: String
+	var last_name: String
+	var picture: NSData
+	
+	init(identifier:String,first_name:String,last_name:String,picture:NSData?) {
+		self.identifier = identifier
+		self.first_name = first_name
+		self.last_name = last_name
+		self.picture = picture!
+	}
+	init(identifier:String,first_name:String,last_name:String) {
+		self.identifier = identifier
+		self.first_name = first_name
+		self.last_name = last_name
+		self.picture = NSData()
+	}
 }

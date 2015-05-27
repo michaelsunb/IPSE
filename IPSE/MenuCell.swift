@@ -10,15 +10,15 @@ import Foundation
 import UIKit
 
 struct MenuCell {
-    var id:Int
-    var title:String
-    var qty:Int
+	var id:Int
+	var title:String
+	var qty:Int
 	var price:Int
-    
-    init(id:Int,title:String,qty:Int,price:Int) {
-        self.id = id
-        self.title = title
-        self.qty = qty
+	
+	init(id:Int,title:String,qty:Int,price:Int) {
+		self.id = id
+		self.title = title
+		self.qty = qty
 		self.price = price
-    }
+	}
 }

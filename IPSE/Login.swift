@@ -10,18 +10,18 @@ import Foundation
 import CoreData
 
 /**
- * https://www.youtube.com/watch?v=K6PfveuxUEk
- */
+* https://www.youtube.com/watch?v=K6PfveuxUEk
+*/
 struct Login {
-    var identifier: String
-    var username: String
-    var password: String
+	var identifier: String
+	var username: String
+	var password: String
 	var toProfile: Profile
-    
-    init(identifier:String,username:String,password:String,toProfile:Profile) {
-        self.identifier = identifier
-        self.username = username
-        self.password = password
-        self.toProfile = toProfile
-    }
+	
+	init(identifier:String,username:String,password:String,toProfile:Profile) {
+		self.identifier = identifier
+		self.username = username
+		self.password = password
+		self.toProfile = toProfile
+	}
 }

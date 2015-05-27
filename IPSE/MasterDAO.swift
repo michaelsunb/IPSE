@@ -11,16 +11,16 @@
 import Foundation
 
 class MasterDAO {
-    private let dataAccessObject:BlueMixDAO
-    init (){
-        dataAccessObject = BlueMixDAO()
-    }
-    
-    func loginRequest() -> Bool{
-        return dataAccessObject.loginRequest()
-    }
-    
-    func getAllProducts() -> NSArray?{
-        return dataAccessObject.getAllProducts()
-    }
+	private let dataAccessObject:BlueMixDAO
+	init (){
+		dataAccessObject = BlueMixDAO()
+	}
+	
+	func loginRequest() -> Bool{
+		return dataAccessObject.loginRequest()
+	}
+	
+	func getAllProducts() -> NSArray?{
+		return dataAccessObject.getAllProducts()
+	}
 }

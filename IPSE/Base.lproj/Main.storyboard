@@ -492,7 +492,6 @@
         <!--Orders-->
         <scene sceneID="Jig-n9-hSH">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lb5-1c-uuF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KTa-72-xnl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Orders" id="dfK-Iv-tpU"/>
                     <toolbarItems/>
@@ -505,6 +504,7 @@
                         <segue destination="Coh-cK-Ery" kind="relationship" relationship="rootViewController" id="VqB-rz-VKn"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lb5-1c-uuF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2977" y="243"/>
         </scene>
@@ -533,8 +533,8 @@
         <image name="ProfileTab" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0Jx-VV-s8o"/>
         <segue reference="o9e-JN-QfZ"/>
         <segue reference="Zmb-9n-Z0F"/>
+        <segue reference="0Jx-VV-s8o"/>
     </inferredMetricsTieBreakers>
 </document>
